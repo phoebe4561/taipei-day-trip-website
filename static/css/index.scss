@@ -3,3 +3,115 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+body {
+  height: 100vh;
+  header {
+    nav {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      div.logo {
+        a {
+          color: #448899;
+          text-decoration: none;
+          font-size: 2rem;
+        }
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        li {
+          list-style-type: none;
+          a {
+            text-decoration: none;
+            color: #666666;
+            padding: 0.5rem;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+  section.banner {
+    display: flex;
+    width: 100%;
+    min-height: 320px;
+    background: linear-gradient(135deg, #aaddee 0%, #66aabb 100%);
+    overflow: hidden;
+    div.left {
+      display: flex;
+      flex: 4 1 600px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      line-height: 4rem;
+      h2 {
+        font-size: 1.75rem;
+      }
+      h4 {
+        font-size: 1rem;
+      }
+      form.search_spot {
+        display: flex;
+        margin-left: 11rem;
+        input {
+          width: 400px;
+          height: 46px;
+          border: none;
+          border-radius: 10px 0 0 10px;
+          font-size: 1rem;
+          color: #757575;
+          padding: 1rem;
+        }
+        button.search_icon {
+          background-color: #448899;
+          width: 60px;
+          height: 46px;
+          border-radius: 0 10px 10px 0;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+      }
+    }
+    div.right {
+      flex: 3 1 600px;
+      position: relative;
+      img {
+        position: absolute;
+      }
+    }
+  }
+
+  main {
+    padding-top: 3.5rem;
+  }
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 104px;
+    width: 100%;
+    background-color: #757575;
+    h4 {
+      font-size: 1rem;
+    }
+  }
+}
