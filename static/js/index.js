@@ -1,18 +1,22 @@
-// function new_observer(){
-//     let options{
-//         root=null,
-//         rootMargin="0px",
-//         threshold=0.5
-//     };
-//     observer = new IntersectionObserver(handleInternet,options);
-//     observer.observer(document.querySelector("footer"));
-// }
-// new_observer();
+let nextpage;
+let observer;
 
-// function handleInternet(entries){
-//     if(entries[0].isIntersecting)
+function new_observer() {
+  let options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
+  observer = new IntersectionObserver(handleInternet, options);
+  observer.observe(document.querySelector("footer"));
+}
+new_observer();
 
-// }
+function handleInternet(entries) {
+  if (entries[0].isIntersecting) {
+    loadAttractions();
+  }
+}
 
 let currentPage = 0;
 async function loadAttractions() {
@@ -20,10 +24,15 @@ async function loadAttractions() {
   const result = await response.json();
   data = result.data;
   nextpage = result.nextpage;
-  getMain(data);
-}
 
-loadAttractions();
+  getMain(data);
+
+  if (nextpage !== null) {
+    currentPage++;
+  } else {
+    observer.unobserve(document.querySelector("footer"));
+  }
+}
 
 function getMain(data) {
   let cards = document.querySelector(".cards");

@@ -143,7 +143,98 @@ body section.banner div.right img {
 }
 
 body main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding-bottom: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-top: 3.5rem;
+}
+
+body main div.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 1200px;
+}
+
+body main div.cards div.mycard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: calc(25% - 30px);
+  margin: 15px;
+}
+
+body main div.cards div.mycard div.imgContainer {
+  border: #e8e8e8 1px solid;
+  border-radius: 10px;
+}
+
+body main div.cards div.mycard div.imgContainer :hover {
+  opacity: 0.8;
+}
+
+body main div.cards div.mycard div.imgContainer img {
+  width: 100%;
+  height: 202px;
+  border-radius: 10px 10px 0 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
+}
+
+body main div.cards div.mycard div.imgContainer h3 {
+  font-size: 1rem;
+  font-weight: bolder;
+  margin: 8px 6px 7.5px 6px;
+}
+
+body main div.cards div.mycard div.imgContainer div.pContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body main div.cards div.mycard div.imgContainer div.pContainer p {
+  font-size: 1rem;
+  margin: 7.5px 6px 12px 6px;
+}
+
+body footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 104px;
+  width: 100%;
+  background-color: #757575;
+}
+
+body footer h4 {
+  font-size: 1rem;
 }
 
 body footer {
