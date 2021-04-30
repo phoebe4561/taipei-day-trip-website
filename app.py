@@ -101,7 +101,6 @@ def get_attraction_list():
 			   nextPage = None			
 		else:
 			attraction_list = attraction_tb.query.paginate(page=page+1, per_page=12,error_out=False)
-			# print(attraction_list)
 			if attraction_list.has_next:
 			   nextPage = attraction_list.next_num-1
 			else:
