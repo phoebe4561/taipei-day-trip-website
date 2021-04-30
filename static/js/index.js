@@ -19,11 +19,25 @@ function handleInternet(entries) {
 }
 
 let currentPage = 0;
+let search_mode = false;
+let keyword;
 async function loadAttractions() {
-  const response = await fetch("/api/attractions?page=" + currentPage);
+  let response;
+  if (!search_mode) {
+    response = await fetch("/api/attractions?page=" + currentPage);
+  } else {
+    response = await fetch(
+      "/api/attractions?page=" + currentPage + "&keyword=" + keyword
+    );
+  }
   const result = await response.json();
   data = result.data;
   nextpage = result.nextpage;
+
+  if (data.length === 0 && search_mode) {
+    document.querySelector(".cards").innerHTML = "查無資料";
+    return;
+  }
 
   getMain(data);
 
@@ -71,3 +85,16 @@ function getMain(data) {
     cards.appendChild(card);
   }
 }
+
+const search = document.querySelector(".search_spot");
+search.addEventListener("submit", (e) => {
+  e.preventDefault();
+  currentPage = 0;
+  document.querySelector(".cards").innerHTML = "";
+  search_mode = true;
+
+  keyword = e.target[0].value;
+
+  observer.unobserve(document.querySelector("footer"));
+  new_observer();
+});
