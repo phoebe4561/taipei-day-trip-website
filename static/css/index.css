@@ -25,6 +25,13 @@ body {
           flex-direction: column;
 }
 
+body header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+}
+
 body header nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,6 +43,10 @@ body header nav {
   margin: 0 auto;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+body header nav div.logo {
+  margin: 0.5rem 0;
 }
 
 body header nav div.logo a {
@@ -51,6 +62,7 @@ body header nav ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0.5rem 0;
 }
 
 body header nav ul li {
@@ -62,6 +74,13 @@ body header nav ul li a {
   color: #666666;
   padding: 0.5rem;
   font-size: 1rem;
+}
+
+body div.blank {
+  width: 100%;
+  height: 58.67px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 body section.banner {

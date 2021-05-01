@@ -98,3 +98,13 @@ search.addEventListener("submit", (e) => {
   observer.unobserve(document.querySelector("footer"));
   new_observer();
 });
+
+let header = document.querySelector("header");
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset != 0) {
+    header.style.backgroundColor = "white";
+    header.style.boxShadow = "3px 3px 5px 1px rgb(128, 128, 128)";
+  } else {
+    header.style = "";
+  }
+});
