@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Phoebe Pao" />
+    <meta name="description" content="介紹最經典的台北一日遊景點,滿足您對台北的所有想像" />
+    <meta name="rating" content="General" />
+    <meta name="robots" content="index,follow" />
+
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+   
+    <!--!fontawsome-->
+    <script src="https://kit.fontawesome.com/eb2b622fe6.js" crossorigin="anonymous"></script>
+    <title>Taipei Trip 台北一日遊</title>
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename = 'css/index.css')}}">
+</head>
+<body>
+   
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">台北一日遊</a>
+            </div>           
+            <ul class="menu">
+                <li><a href="#">預定行程</a></li>
+                <li><a href="#">登入/註冊</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="blank"></div>
+    
+    <section class="banner">
+        <div class="left">
+            <h2>輕鬆享受台北一日休閒</h2>
+            <h4>探索每個角落，體驗城市的深度旅遊行程</h4>
+            
+            <form action="" class="search_spot">
+                <label for="search"></label>
+                <input type="text" id="searchBar" name="search" placeholder="輸入景點名稱查詢" required>
+                <button class="search_icon" type='submit'>
+                    <img src="../static/icon/icon_search.svg" alt="放大鏡搜尋圖示">
+                </button> 
+            </form> 
+        </div>
+
+        <div class="right">
+            <img src="../static/pics/welcome 1.svg" alt="banner圖">
+        </div>
+    </section>
+    
+    <main>
+        <div class="cards"></div>
+    </main>
+    
+    <footer>
+        <h4>COPYRIGHT © 2021 台北一日遊</h4>
+    </footer>
+
+</body>
+<script src="{{url_for('static', filename = 'js/index.js')}}"></script>
+</html>
