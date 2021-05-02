@@ -9,8 +9,7 @@ app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://debian-sys-maint:YKFIGnHCbX2FjXdJ
-@localhost:3306/taipeiprojectdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://hello:password@localhost:3306/taipeiprojectdb'
 
 db = SQLAlchemy(app)
 
