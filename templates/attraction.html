@@ -31,37 +31,46 @@
         </nav>
     </header>
     <main>
+        <div class="top">
+
             <section class="left">
                 <div class="imgContainer"></div>
-                <button id="leftBtn"><img src="../static/icon/btn_leftArrow.svg" ></button>
-                <button id="rightBtn"><img src="../static/icon/btn_leftArrow.svg" ></button>
+                <button class="leftBtn"><img src="../static/icon/btn_leftArrow.svg" ></button>
+                <button class="rightBtn"><img src="../static/icon/btn_rightArrow.svg" ></button>
                 <ul class="dots"></ul>
             </section>
 
             <section class="right">
                 <div class="spotTitle"></div>
                 <div class="spotMrt"></div>
-                <form action="" class="form_content">
-                    <p>訂購導覽行程</p>
-                    <p>以此景點為中心的一日行程，帶您探索城市角落故事</p>
-                    <div class="order_date">                           
-                        <span>訂購日期:</span>
-                        <input id="order_date" name="order_date" type="date">
+                <form action="">
+                    <div class="form_content">
+                        <p class="bolder">訂購導覽行程</p>
+                        <p>以此景點為中心的一日行程，帶您探索城市角落故事</p>
+                        <div class="order_date">                           
+                            <span>訂購日期:</span>
+                            <input id="order_date" name="order_date" type="date">
+                        </div>
+                        <div class="order_time">
+                            <span>選擇時間:</span>
+                            <div class="morning">
+                                <input type="radio" id="morning" name="chooseTime">
+                                <label for="morning">上半天</label>
+                            </div>
+                            <div class="afternoon">
+                                <input type="radio" id="afternoon" name="chooseTime">
+                                <label for="afternoon">下半天</label>
+                            </div>
+                        </div>
+                        <div class="order_cost">
+                            <span>導覽費用:</span>
+                            <p>新台幣2000元</p>
+                        </div>
+                        <button>開始預訂行程</button>
                     </div>
-                    <div class="order_time">
-                        <span>選擇時間:</span>
-                            <input type="radio" id="morning" name="chooseTime">
-                            <label for="morning">上半天</label>
-                            <input type="radio" id="afternoon" name="chooseTime">
-                            <label for="afternoon">下半天</label>
-                    </div>
-                    <div class="order_cost">
-                        <span>導覽費用:</span>
-                        <p>新台幣2000元</p>
-                    </div>
-                    <button>開始預訂行程</button>
                 </form>
             </section>
+        </div>
 
         <hr>
 
