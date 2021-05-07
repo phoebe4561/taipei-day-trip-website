@@ -19,7 +19,11 @@ html {
   position: relative;
 }
 
-body header {
+html body {
+  margin-bottom: 104px;
+}
+
+html body header {
   position: -webkit-sticky;
   position: sticky;
   z-index: 5;
@@ -31,7 +35,7 @@ body header {
           box-shadow: 2px 2px 5px 1px gray;
 }
 
-body header nav {
+html body header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,17 +48,17 @@ body header nav {
   margin: 0 auto;
 }
 
-body header nav div.logo {
+html body header nav div.logo {
   margin: 0.5rem 0;
 }
 
-body header nav div.logo a {
+html body header nav div.logo a {
   color: #448899;
   text-decoration: none;
   font-size: 2rem;
 }
 
-body header nav ul {
+html body header nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,18 +68,18 @@ body header nav ul {
   margin: 0.5rem 0;
 }
 
-body header nav ul li {
+html body header nav ul li {
   list-style-type: none;
 }
 
-body header nav ul li a {
+html body header nav ul li a {
   text-decoration: none;
   color: #666666;
   padding: 0.5rem;
   font-size: 1rem;
 }
 
-body main {
+html body main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,7 +91,7 @@ body main {
   margin-top: 37px;
 }
 
-body main div.top {
+html body main div.top {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -101,7 +105,7 @@ body main div.top {
   margin: 0 auto;
 }
 
-body main div.top section.left {
+html body main div.top section.left {
   width: calc(50% - 30px);
   position: relative;
   overflow: hidden;
@@ -109,12 +113,12 @@ body main div.top section.left {
   height: 406px;
 }
 
-body main div.top section.left div.imgContainer {
+html body main div.top section.left div.imgContainer {
   width: 100%;
   height: 100%;
 }
 
-body main div.top section.left div.imgContainer img {
+html body main div.top section.left div.imgContainer img {
   border-radius: 10px;
   width: 100%;
   height: 100%;
@@ -122,7 +126,7 @@ body main div.top section.left div.imgContainer img {
      object-fit: cover;
 }
 
-body main div.top section.left button.leftBtn {
+html body main div.top section.left button.leftBtn {
   font-size: 2.5rem;
   position: absolute;
   cursor: pointer;
@@ -131,7 +135,7 @@ body main div.top section.left button.leftBtn {
   background: none;
 }
 
-body main div.top section.left button.rightBtn {
+html body main div.top section.left button.rightBtn {
   font-size: 2.5rem;
   position: absolute;
   cursor: pointer;
@@ -141,7 +145,7 @@ body main div.top section.left button.rightBtn {
   background: none;
 }
 
-body main div.top section.left .dots {
+html body main div.top section.left .dots {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -152,7 +156,7 @@ body main div.top section.left .dots {
           transform: translateX(-50%);
 }
 
-body main div.top section.left .dots .dot {
+html body main div.top section.left .dots .dot {
   cursor: pointer;
   list-style: none;
   width: 1rem;
@@ -163,65 +167,65 @@ body main div.top section.left .dots .dot {
   border-radius: 50%;
 }
 
-body main div.top section.right {
+html body main div.top section.right {
   width: 50%;
 }
 
-body main div.top section.right div.spotTitle,
-body main div.top section.right div.spotMrt {
+html body main div.top section.right div.spotTitle,
+html body main div.top section.right div.spotMrt {
   color: #666666;
   font-size: 1.25rem;
   margin: 15px 0 25px 0;
 }
 
-body main div.top section.right .spotTitle,
-body main div.top section.right .bolder {
+html body main div.top section.right .spotTitle,
+html body main div.top section.right .bolder {
   font-weight: bolder;
 }
 
-body main div.top section.right form {
+html body main div.top section.right form {
   background-color: #e8e8e8;
   max-width: 600px;
   height: auto;
   border-radius: 5px;
 }
 
-body main div.top section.right form div.form_content {
+html body main div.top section.right form div.form_content {
   line-height: 2.5rem;
   color: #666666;
   margin: 16px 20px;
 }
 
-body main div.top section.right form div.form_content span {
+html body main div.top section.right form div.form_content span {
   font-weight: bolder;
   padding-right: 8px;
 }
 
-body main div.top section.right form div.form_content .order_date {
+html body main div.top section.right form div.form_content .order_date {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body main div.top section.right form div.form_content .order_date input {
+html body main div.top section.right form div.form_content .order_date input {
   width: 193px;
   height: 35px;
   color: black;
   padding: 5px 10px;
 }
 
-body main div.top section.right form div.form_content .order_time {
+html body main div.top section.right form div.form_content .order_time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body main div.top section.right form div.form_content .order_time div.morning label,
-body main div.top section.right form div.form_content .order_time div.afternoon label {
+html body main div.top section.right form div.form_content .order_time div.morning label,
+html body main div.top section.right form div.form_content .order_time div.afternoon label {
   padding: 0 8px;
 }
 
-body main div.top section.right form div.form_content .order_time input[type="radio"]:after {
+html body main div.top section.right form div.form_content .order_time input[type="radio"]:after {
   width: 18px;
   height: 18px;
   border-radius: 15px;
@@ -235,7 +239,7 @@ body main div.top section.right form div.form_content .order_time input[type="ra
   cursor: pointer;
 }
 
-body main div.top section.right form div.form_content .order_time input[type="radio"]:checked:after {
+html body main div.top section.right form div.form_content .order_time input[type="radio"]:checked:after {
   width: 18px;
   height: 18px;
   border-radius: 15px;
@@ -249,13 +253,13 @@ body main div.top section.right form div.form_content .order_time input[type="ra
   cursor: pointer;
 }
 
-body main div.top section.right form div.form_content .order_cost {
+html body main div.top section.right form div.form_content .order_cost {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body main div.top section.right form div.form_content button {
+html body main div.top section.right form div.form_content button {
   color: white;
   background-color: #448899;
   border: none;
@@ -266,12 +270,12 @@ body main div.top section.right form div.form_content button {
   margin: 20px 0;
 }
 
-body main hr {
+html body main hr {
   width: 1200px;
   margin: 2rem auto;
 }
 
-body main section.content {
+html body main section.content {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -279,12 +283,13 @@ body main section.content {
   color: #666666;
 }
 
-body main section.content p {
+html body main section.content p {
   margin: 20px 0 5px 0;
   font-weight: bolder;
 }
 
-body footer {
+html body footer {
+  bottom: 0;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -302,27 +307,27 @@ body footer {
   background-color: #757575;
 }
 
-body footer h4 {
+html body footer h4 {
   font-size: 1rem;
 }
 
 @media screen and (max-width: 1200px) {
-  body header nav .logo {
+  html body header nav .logo {
     padding-left: 2rem;
   }
-  body header nav .menu {
+  html body header nav .menu {
     padding-right: 2rem;
   }
-  body main div.top {
+  html body main div.top {
     width: 90%;
   }
-  body main section.content {
+  html body main section.content {
     width: 90%;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  body main div.top {
+  html body main div.top {
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -335,42 +340,42 @@ body footer h4 {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  body main div.top section.left {
+  html body main div.top section.left {
     width: 90%;
   }
-  body main div.top section.left div.imgContainer img {
+  html body main div.top section.left div.imgContainer img {
     height: 100%;
   }
-  body main div.top section.right {
+  html body main div.top section.right {
     width: 90%;
     margin-top: 1rem;
   }
-  body main div.top section.right .spotTitle,
-  body main div.top section.right .spotMrt {
+  html body main div.top section.right .spotTitle,
+  html body main div.top section.right .spotMrt {
     text-align: center;
   }
-  body main div.top section.right form {
+  html body main div.top section.right form {
     max-width: 900px;
   }
 }
 
 @media screen and (max-width: 540px) {
-  body header nav .logo {
+  html body header nav .logo {
     padding-left: 1rem;
   }
-  body header nav .menu {
+  html body header nav .menu {
     padding-right: 1rem;
   }
-  body main div.top section.left {
+  html body main div.top section.left {
     width: 100%;
   }
-  body main div.top section.left div.imgContainer img {
+  html body main div.top section.left div.imgContainer img {
     width: 100vw;
     -o-object-fit: cover;
        object-fit: cover;
     max-height: 406px;
   }
-  body main div.top section.right {
+  html body main div.top section.right {
     width: 90%;
   }
 }
