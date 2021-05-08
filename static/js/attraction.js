@@ -9,6 +9,7 @@ async function loadAttractionId() {
   getImages(imgArr);
   getData();
   showImage();
+  changeMoney();
 
   let leftBtn = document.querySelector(".leftBtn");
   leftBtn.addEventListener("click", () => {
@@ -25,7 +26,7 @@ async function loadAttractionId() {
   for (i = 0; i < dot.length; i++) {
     dot[i].addEventListener("click", (e) => {
       let index = e.target.getAttribute("data-attr");
-      index = parseInt(index);
+      index = parseInt(index); //記得把string"data-attr"轉成int
       changeDot(index);
       // console.log(index);
     });
@@ -89,4 +90,17 @@ function showImage(n) {
   }
   slides[index - 1].style.display = "flex";
   dot[index - 1].style.background = "white";
+}
+
+//form changeMoney button
+function changeMoney() {
+  let morning = document.querySelector("#morning");
+  let afternoon = document.querySelector("#afternoon");
+  let money = document.querySelector(".money");
+  morning.addEventListener("click", () => {
+    money.textContent = "新台幣2000元";
+  });
+  afternoon.addEventListener("click", () => {
+    money.textContent = "新台幣2500元";
+  });
 }
