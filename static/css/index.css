@@ -220,6 +220,7 @@ body main div.cards div.mycard div.imgContainer img {
   -webkit-transition: 0.3s opacity ease-in;
   transition: 0.3s opacity ease-in;
   overflow: hidden;
+  cursor: pointer;
 }
 
 body main div.cards div.mycard div.imgContainer h3 {
