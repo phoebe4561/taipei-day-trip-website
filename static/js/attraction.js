@@ -84,12 +84,15 @@ function showImage(n) {
   }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
-  }
-  for (i = 0; i < dot.length; i++) {
-    dot[i].style.background = "black";
+    slides[i].style.animation = "fade 0.5s forwards";
   }
   slides[index - 1].style.display = "flex";
-  dot[index - 1].style.background = "white";
+  for (i = 0; i < dot.length; i++) {
+    dot[i].className = dot[i].className.replace(" active", "");
+    // dot[i].style.background = "black";
+  }
+  dot[index - 1].className += " active";
+  // dot[index - 1].style.background = "white";
 }
 
 //form changeMoney button

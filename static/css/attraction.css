@@ -167,6 +167,14 @@ html body main div.top section.left .dots .dot {
   border-radius: 50%;
 }
 
+html body main div.top section.left .dots .dot:hover {
+  background: white;
+}
+
+html body main div.top section.left .dots .active {
+  background: rgba(255, 255, 255, 0.8);
+}
+
 html body main div.top section.right {
   width: 50%;
 }
@@ -309,6 +317,24 @@ html body footer {
 
 html body footer h4 {
   font-size: 1rem;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 1200px) {

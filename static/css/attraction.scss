@@ -117,9 +117,16 @@ html {
               background-color: black;
               border: 1px solid rgba(255, 255, 255, 1);
               border-radius: 50%;
+              &:hover {
+                background: white;
+              }
+            }
+            .active {
+              background: rgba(255, 255, 255, 0.8);
             }
           }
         }
+
         section.right {
           width: 50%;
           div.spotTitle,
@@ -235,6 +242,14 @@ html {
       background-color: #757575;
       h4 {
         font-size: 1rem;
+      }
+    }
+    @keyframes fade {
+      from {
+        opacity: 0.4;
+      }
+      to {
+        opacity: 1;
       }
     }
     @media screen and (max-width: 1200px) {
