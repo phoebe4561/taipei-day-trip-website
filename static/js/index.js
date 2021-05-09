@@ -54,9 +54,12 @@ function getMain(data) {
     let card = document.createElement("div");
     card.classList = "mycard";
 
+    let a_tag = document.createElement("a");
     let img = document.createElement("img");
     img.setAttribute("src", item["images"][0]);
     img.setAttribute("alt", item["name"]);
+    a_tag.appendChild(img);
+    a_tag.href = "/attraction/" + item["id"];
 
     let attraction_title = document.createElement("h3");
     let title = document.createTextNode(item["name"]);
@@ -77,7 +80,7 @@ function getMain(data) {
 
     let img_container = document.createElement("div");
     img_container.classList = "imgContainer";
-    img_container.appendChild(img);
+    img_container.appendChild(a_tag);
     img_container.appendChild(attraction_title);
     img_container.appendChild(p_container);
 

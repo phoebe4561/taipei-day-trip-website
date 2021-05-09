@@ -1,0 +1,408 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+html body {
+  margin-bottom: 104px;
+}
+
+html body header {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  height: 58.67;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 5px 1px gray;
+          box-shadow: 2px 2px 5px 1px gray;
+}
+
+html body header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+html body header nav div.logo {
+  margin: 0.5rem 0;
+}
+
+html body header nav div.logo a {
+  color: #448899;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+html body header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem 0;
+}
+
+html body header nav ul li {
+  list-style-type: none;
+}
+
+html body header nav ul li a {
+  text-decoration: none;
+  color: #666666;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+html body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  margin-top: 37px;
+}
+
+html body main div.top {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+html body main div.top section.left {
+  width: calc(50% - 30px);
+  position: relative;
+  overflow: hidden;
+  max-width: 540px;
+  height: 406px;
+}
+
+html body main div.top section.left div.imgContainer {
+  width: 100%;
+  height: 100%;
+}
+
+html body main div.top section.left div.imgContainer img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+html body main div.top section.left button.leftBtn {
+  font-size: 2.5rem;
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  border: none;
+  background: none;
+}
+
+html body main div.top section.left button.rightBtn {
+  font-size: 2.5rem;
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  right: 0;
+  border: none;
+  background: none;
+}
+
+html body main div.top section.left .dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+html body main div.top section.left .dots .dot {
+  cursor: pointer;
+  list-style: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 5px;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+html body main div.top section.left .dots .dot:hover {
+  background: white;
+}
+
+html body main div.top section.left .dots .active {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+html body main div.top section.right {
+  width: 50%;
+}
+
+html body main div.top section.right div.spotTitle,
+html body main div.top section.right div.spotMrt {
+  color: #666666;
+  font-size: 1.25rem;
+  margin: 15px 0 25px 0;
+}
+
+html body main div.top section.right .spotTitle,
+html body main div.top section.right .bolder {
+  font-weight: bolder;
+}
+
+html body main div.top section.right form {
+  background-color: #e8e8e8;
+  max-width: 600px;
+  height: auto;
+  border-radius: 5px;
+}
+
+html body main div.top section.right form div.form_content {
+  line-height: 2.5rem;
+  color: #666666;
+  margin: 16px 20px;
+}
+
+html body main div.top section.right form div.form_content span {
+  font-weight: bolder;
+  padding-right: 8px;
+}
+
+html body main div.top section.right form div.form_content .order_date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body main div.top section.right form div.form_content .order_date input {
+  width: 193px;
+  height: 35px;
+  color: black;
+  padding: 5px 10px;
+}
+
+html body main div.top section.right form div.form_content .order_time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body main div.top section.right form div.form_content .order_time div.morning label,
+html body main div.top section.right form div.form_content .order_time div.afternoon label {
+  padding: 0 8px;
+}
+
+html body main div.top section.right form div.form_content .order_time input[type="radio"]:after {
+  width: 18px;
+  height: 18px;
+  border-radius: 15px;
+  top: -4px;
+  left: -1px;
+  position: relative;
+  background-color: white;
+  content: "";
+  display: inline-block;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+html body main div.top section.right form div.form_content .order_time input[type="radio"]:checked:after {
+  width: 18px;
+  height: 18px;
+  border-radius: 15px;
+  top: -4px;
+  left: -1px;
+  position: relative;
+  background: #448899;
+  content: "";
+  display: inline-block;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+html body main div.top section.right form div.form_content .order_cost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html body main div.top section.right form div.form_content button {
+  color: white;
+  background-color: #448899;
+  border: none;
+  font-size: 1.25rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+html body main hr {
+  width: 1200px;
+  margin: 2rem auto;
+}
+
+html body main section.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  color: #666666;
+}
+
+html body main section.content p {
+  margin: 20px 0 5px 0;
+  font-weight: bolder;
+}
+
+html body footer {
+  bottom: 0;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 104px;
+  width: 100%;
+  background-color: #757575;
+}
+
+html body footer h4 {
+  font-size: 1rem;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html body header nav .logo {
+    padding-left: 2rem;
+  }
+  html body header nav .menu {
+    padding-right: 2rem;
+  }
+  html body main div.top {
+    width: 90%;
+  }
+  html body main section.content {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  html body main div.top {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  html body main div.top section.left {
+    width: 90%;
+  }
+  html body main div.top section.left div.imgContainer img {
+    height: 100%;
+  }
+  html body main div.top section.right {
+    width: 90%;
+    margin-top: 1rem;
+  }
+  html body main div.top section.right .spotTitle,
+  html body main div.top section.right .spotMrt {
+    text-align: center;
+  }
+  html body main div.top section.right form {
+    max-width: 900px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  html body header nav .logo {
+    padding-left: 1rem;
+  }
+  html body header nav .menu {
+    padding-right: 1rem;
+  }
+  html body main div.top section.left {
+    width: 100%;
+  }
+  html body main div.top section.left div.imgContainer img {
+    width: 100vw;
+    -o-object-fit: cover;
+       object-fit: cover;
+    max-height: 406px;
+  }
+  html body main div.top section.right {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=attraction.css.map */
