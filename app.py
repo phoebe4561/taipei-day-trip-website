@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request,jsonify
 from data import data
 from flask_sqlalchemy import SQLAlchemy
+import sqlalchemy 
 
 app=Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -39,6 +40,21 @@ class attraction_tb(db.Model):
 		self.latitude = latitude
 		self.longitude = longitude
 		self.images = images
+	
+class user_tb(db.Model):
+	__table_args__ = {
+		'comment': 'Notice user_table'
+		}
+	id = db.Column(db.Integer, primary_key = True, autoincrement = True, comment='編號') 
+	email = db.Column(db.String(50), nullable = False, comment = '帳號') 
+	name = db.Column(db.String(50), nullable = False, comment = '姓名') 
+	password = db.Column(db.String(255), nullable = False, comment = '密碼') 
+	time = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True),nullable = False, server_default = sqlalchemy.sql.func.now(), comment = '註冊時間')
+
+	def __init__ (self,email,name,password):
+		self.email = email
+		self.name = name
+		self.password = password
 
 # Pages
 @app.route("/load")
@@ -127,5 +143,7 @@ def get_attraction_list():
 	except:
 		return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
 
-app.run(port=3000,debug=True)
+if __name__=='__main__':
+	db.create_all()
+	app.run(port=3000,debug=True)
 
