@@ -120,10 +120,6 @@ html {
             display: block;
             margin: 10px auto;
           }
-          #signin_successAlert {
-            text-align: center;
-            color: green;
-          }
           #signin_errorAlert {
             text-align: center;
             color: red;
@@ -135,6 +131,9 @@ html {
               text-decoration: none;
               cursor: pointer;
               margin: 0 auto;
+              span.border {
+                font-weight: bolder;
+              }
             }
           }
         }
@@ -217,6 +216,9 @@ html {
               text-decoration: none;
               cursor: pointer;
               margin: 0 auto;
+              span.border {
+                font-weight: bolder;
+              }
             }
           }
         }

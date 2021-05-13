@@ -1,16 +1,16 @@
-//signin popup
+//signin popup右上角登入/註冊btn
 function signin_popup() {
-  let signin_button = document.querySelectorAll("a.signin_button");
-  for (i = 0; i < signin_button.length; i++) {
-    signin_button[i].addEventListener("click", () => {
+  let signin_button = document.querySelector("a.signin_button");
+  signin_button.addEventListener("click", () => {
+    if (signin_button.innerHTML === "登入/註冊") {
       document.querySelector(".popup").style.display = "flex";
       document.querySelector(".signup_popup").style.display = "none";
-    });
 
-    document.querySelector(".close_button").addEventListener("click", () => {
-      document.querySelector(".popup").style.display = "none";
-    });
-  }
+      document.querySelector(".close_button").addEventListener("click", () => {
+        document.querySelector(".popup").style.display = "none";
+      });
+    }
+  });
 }
 signin_popup();
 
@@ -29,6 +29,16 @@ function signup_popup() {
     });
 }
 signup_popup();
+
+//signin popup form中下方登入btn
+function form_signin_popup() {
+  let form_signinBtn = document.querySelector(".form_signinBtn");
+  form_signinBtn.addEventListener("click", () => {
+    document.querySelector(".signup_popup").style.display = "none";
+    document.querySelector(".popup").style.display = "flex";
+  });
+}
+form_signin_popup();
 
 //註冊流程
 let signup_popup_form = document.querySelector(".signup_popup_form");

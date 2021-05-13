@@ -146,11 +146,6 @@ body section.popup div.popup_container form button {
   margin: 10px auto;
 }
 
-body section.popup div.popup_container form #signin_successAlert {
-  text-align: center;
-  color: green;
-}
-
 body section.popup div.popup_container form #signin_errorAlert {
   text-align: center;
   color: red;
@@ -165,6 +160,10 @@ body section.popup div.popup_container form div.a_tag a {
   text-decoration: none;
   cursor: pointer;
   margin: 0 auto;
+}
+
+body section.popup div.popup_container form div.a_tag a span.border {
+  font-weight: bolder;
 }
 
 body section.signup_popup {
@@ -255,6 +254,10 @@ body section.signup_popup div.signup_popup_container form div.a_tag a {
   text-decoration: none;
   cursor: pointer;
   margin: 0 auto;
+}
+
+body section.signup_popup div.signup_popup_container form div.a_tag a span.border {
+  font-weight: bolder;
 }
 
 body div.blank {
