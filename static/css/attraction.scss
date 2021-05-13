@@ -257,6 +257,7 @@ html {
             position: absolute;
             cursor: pointer;
             top: 50%;
+            left: 5px;
             border: none;
             background: none;
           }
@@ -265,7 +266,7 @@ html {
             position: absolute;
             cursor: pointer;
             top: 50%;
-            right: 0;
+            right: 5px;
             border: none;
             background: none;
           }
@@ -391,6 +392,9 @@ html {
         margin: 0 auto;
         margin-bottom: 3rem;
         color: rgba(102, 102, 102, 1);
+        .spotDesc {
+          line-height: 1.8rem;
+        }
         p {
           margin: 20px 0 5px 0;
           font-weight: bolder;

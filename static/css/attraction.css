@@ -315,6 +315,7 @@ html body main div.top section.left button.leftBtn {
   position: absolute;
   cursor: pointer;
   top: 50%;
+  left: 5px;
   border: none;
   background: none;
 }
@@ -324,7 +325,7 @@ html body main div.top section.left button.rightBtn {
   position: absolute;
   cursor: pointer;
   top: 50%;
-  right: 0;
+  right: 5px;
   border: none;
   background: none;
 }
@@ -473,6 +474,10 @@ html body main section.content {
   margin: 0 auto;
   margin-bottom: 3rem;
   color: #666666;
+}
+
+html body main section.content .spotDesc {
+  line-height: 1.8rem;
 }
 
 html body main section.content p {
