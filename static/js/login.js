@@ -19,6 +19,8 @@ function signup_popup() {
   let signup_button = document.querySelector("a.signup_button");
   signup_button.addEventListener("click", () => {
     document.querySelector(".signup_popup").style.display = "flex";
+    document.querySelector("#signup_errorAlert").textContent = "";
+    document.querySelector("#signup_successAlert").textContent = "";
   });
 
   document
@@ -61,12 +63,16 @@ signup_popup_form.addEventListener("submit", (e) => {
       }),
     });
     let res = await response.json();
+    // console.log(res);
     if (res["ok"]) {
+      document.querySelector("#signup_successAlert").style.display = "block";
       document.querySelector("#signup_successAlert").textContent = "註冊成功";
       document.querySelector("#signup_errorAlert").style.display = "none";
       console.log(response);
     }
     if (res["error"]) {
+      document.querySelector("#signup_successAlert").style.display = "none";
+      document.querySelector("#signup_errorAlert").style.display = "block";
       document.querySelector("#signup_errorAlert").textContent =
         "註冊失敗,此信箱已被註冊";
     }
