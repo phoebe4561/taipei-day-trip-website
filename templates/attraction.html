@@ -26,10 +26,59 @@
             </div>           
             <ul class="menu">
                 <li><a href="#">預定行程</a></li>
-                <li><a href="#">登入/註冊</a></li>
+                <li><a href="#" class="signin_button">登入/註冊</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- 登入 popup -->
+    <section class="popup">
+        <div class="popup_container">
+            <div class="blank"></div>
+            <div class="close_button">&times;</div>
+            <form action="/api/user" class="popup_form">
+                <h3>登入會員帳號</h3>
+                <label for="em"></label>
+                <input type="text" id="em" name="em" placeholder="請輸入電子信箱" required> 
+                <label for="pw"></label>
+                <input type="password" id="pw" name="pw" placeholder="請輸入密碼" required>
+                <button>登入帳戶</button>
+                <div id="signin_errorAlert"></div>
+                <div class="a_tag">
+                    <a href="#" class="signup_button">還沒有帳戶?點此<span class="border">註冊</span></a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- 註冊 popup -->
+    <section class="signup_popup">
+        <div class="signup_popup_container">
+            <div class="signup_blank"></div>
+            <div class="signup_close_button">&times;</div>
+            <form action="/api/user" class="signup_popup_form">
+                <h3>註冊會員帳號</h3>
+                <label for="name"></label>
+                <input type="text" id="name" name="name" placeholder="請輸入姓名" required> 
+                <label for="email"></label>
+                <input type="text" id="email" name="email" placeholder="請輸入電子信箱" required>
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="請輸入密碼" required>
+                <button>註冊新帳戶</button>    
+                
+                <div id="signup_successAlert"></div>
+                <div id="signup_errorAlert"></div>
+
+                <div class="a_tag">
+                    <a href="#" class="form_signinBtn">已經有帳戶了?點此<span class="border">登入</span></a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+
+
     <main>
         <div class="top">
 
@@ -89,4 +138,5 @@
 </body>
 
 <script src="{{url_for('static', filename = 'js/attraction.js')}}"></script>
+<script src="{{url_for('static', filename = 'js/login.js')}}"></script>
 </html>

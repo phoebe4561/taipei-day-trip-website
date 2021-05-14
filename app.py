@@ -1,6 +1,8 @@
-from flask import Flask,render_template,request,jsonify
+from flask import Flask,render_template,request,jsonify,session
 from data import data
 from flask_sqlalchemy import SQLAlchemy
+import sqlalchemy 
+import os
 
 app=Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -9,6 +11,7 @@ app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = os.urandom(24)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://hello:password@localhost:3306/taipeiprojectdb'
 
 db = SQLAlchemy(app)
@@ -39,6 +42,21 @@ class attraction_tb(db.Model):
 		self.latitude = latitude
 		self.longitude = longitude
 		self.images = images
+	
+class user_tb(db.Model):
+	__table_args__ = {
+		'comment': 'Notice user_table'
+		}
+	id = db.Column(db.Integer, primary_key = True, autoincrement = True, comment='編號') 
+	email = db.Column(db.String(50), nullable = False, comment = '帳號') 
+	name = db.Column(db.String(50), nullable = False, comment = '姓名') 
+	password = db.Column(db.String(255), nullable = False, comment = '密碼') 
+	time = sqlalchemy.Column(sqlalchemy.DateTime(timezone=True),nullable = False, server_default = sqlalchemy.sql.func.now(), comment = '註冊時間')
+
+	def __init__ (self,email,name,password):
+		self.email = email
+		self.name = name
+		self.password = password
 
 # Pages
 @app.route("/load")
@@ -127,5 +145,74 @@ def get_attraction_list():
 	except:
 		return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
 
-app.run(host="0.0.0.0", port=3000)
+@app.route("/api/user", methods = ["GET"])
+def get_user_data():
+	email=session.get('email')
+
+	if email:
+		user=user_tb.query.filter_by(email=email).first()
+		
+		user_data = {}
+		user_data['id'] = user.id
+		user_data['name'] = user.name
+		user_data['email'] = user.email
+		db.session.commit()
+		return jsonify({'data':user_data})
+	else:
+		return jsonify({'data':None})
+
+@app.route("/api/user", methods = ["POST"])
+def create_new_user():
+	data=request.get_json()
+	name=data['name']
+	email=data['email']
+	password=data['password']
+	
+	try:
+		if name and email and password:
+			user = user_tb.query.filter_by(email=email).first()
+			if user:
+				return jsonify({"error":True, "message":"此信箱已被註冊,註冊失敗"}),400
+			else:
+				new_user=user_tb(name=data['name'],email=data['email'],password=data['password'])
+				db.session.add(new_user)
+				db.session.commit()
+				return jsonify({"ok":True})
+		else:
+			return jsonify({"error":True})
+	except:
+			return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
+
+@app.route("/api/user", methods = ["PATCH"])
+def signin_user():
+	data=request.get_json()
+	email=data['email']
+	password=data['password']
+
+	try:
+		if email and password:
+			user=user_tb.query.filter_by(email=email,password=password).first()
+			if not user:
+				return jsonify({"error":True, "message":"帳號或密碼錯誤,註冊失敗"}),400
+			else:
+				signin_email=data['email']
+				signin_password=data['password']
+				session['email']=signin_email
+				return jsonify({"ok":True})
+		else:
+			return jsonify({"error":True})
+	except:
+			return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
+		
+@app.route("/api/user", methods = ["DELETE"])
+def signout_user():
+	if 'email' in session:
+		session.pop("email")
+		return jsonify({"ok":True})
+
+
+if __name__=='__main__':
+	db.create_all()
+	app.run(port=3000,debug=True)
+
 
