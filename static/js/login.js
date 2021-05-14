@@ -38,6 +38,7 @@ function form_signin_popup() {
   form_signinBtn.addEventListener("click", () => {
     document.querySelector(".signup_popup").style.display = "none";
     document.querySelector(".popup").style.display = "flex";
+    document.querySelector("#signin_errorAlert").textContent = "";
   });
 }
 form_signin_popup();
@@ -102,6 +103,7 @@ popup_form = document.addEventListener("submit", (e) => {
       }),
     });
     let res = await response.json();
+    // console.log(res);
     if (res["ok"]) {
       window.location.reload();
     }

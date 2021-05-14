@@ -179,7 +179,7 @@ def create_new_user():
 				db.session.commit()
 				return jsonify({"ok":True})
 		else:
-			return "error"
+			return jsonify({"error":True})
 	except:
 			return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
 
@@ -200,7 +200,7 @@ def signin_user():
 				session['email']=signin_email
 				return jsonify({"ok":True})
 		else:
-			return "error"
+			return jsonify({"error":True})
 	except:
 			return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
 		
