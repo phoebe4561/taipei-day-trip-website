@@ -58,6 +58,22 @@ class user_tb(db.Model):
 		self.name = name
 		self.password = password
 
+class booking_tb(db.Model):
+	__table_args__ = {
+		'comment': 'Notice booking_table'
+		}
+	id = db.Column(db.Integer, primary_key = True, autoincrement = True, comment='景點編號') 
+	attractionId = db.Column(db.Integer, db.ForeignKey('attraction_tb.id'), comment='訂單景點編號')
+	date = db.Column(db.String(50), nullable = False, comment = '預約日期')
+	time = db.Column(db.String(50), nullable = False, comment = '預約時間') 
+	price = db.Column(db.String(50), nullable = False, comment = '景點價格')
+	
+	def __init__ (self,attractionId,date,time,price):
+		self.attractionId = attractionId
+		self.date = date
+		self.time = time
+		self.price = price
+
 # Pages
 @app.route("/load")
 def load():
