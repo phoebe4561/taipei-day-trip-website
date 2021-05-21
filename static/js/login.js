@@ -140,6 +140,26 @@ async function signOut() {
   });
   const res = await response.json();
   if (res["ok"]) {
-    window.location.reload();
+    // window.location.reload();
+    location.href = "/";
   }
 }
+
+async function reservedOrder() {
+  let response = await fetch("/api/user");
+  const result = await response.json();
+  if (result.data) {
+    window.location.href = "/booking";
+  } else {
+    document.querySelector(".popup").style.display = "flex";
+    document.querySelector(".close_button").addEventListener("click", () => {
+      document.querySelector(".popup").style.display = "none";
+    });
+  }
+}
+
+let reservedBtn = document.querySelector(".reservedBtn");
+reservedBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  reservedOrder();
+});
