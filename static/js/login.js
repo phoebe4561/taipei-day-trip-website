@@ -1,13 +1,15 @@
-//signin popup右上角登入/註冊btn
+//signin popup右上角登入/註冊navbar
 function signin_popup() {
   let signin_button = document.querySelector("a.signin_button");
   signin_button.addEventListener("click", () => {
     if (signin_button.innerHTML === "登入/註冊") {
       document.querySelector(".popup").style.display = "flex";
       document.querySelector(".signup_popup").style.display = "none";
+      document.querySelector("#signin_errorAlert").textContent = "";
 
       document.querySelector(".close_button").addEventListener("click", () => {
         document.querySelector(".popup").style.display = "none";
+        document.querySelector("#signin_errorAlert").textContent = "";
       });
     }
   });
@@ -145,6 +147,7 @@ async function signOut() {
   }
 }
 
+//右上角預定行程navbar
 async function reservedOrder() {
   let response = await fetch("/api/user");
   const result = await response.json();
