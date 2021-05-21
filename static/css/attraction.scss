@@ -316,6 +316,7 @@ html {
               line-height: 2.5rem;
               color: rgba(102, 102, 102, 1);
               margin: 16px 20px;
+              position: relative;
               span {
                 font-weight: bolder;
                 padding-right: 8px;
@@ -368,7 +369,7 @@ html {
               .order_cost {
                 display: flex;
               }
-              button {
+              button.reserved_button {
                 color: rgba(255, 255, 255, 1);
                 background-color: rgba(68, 136, 153, 1);
                 border: none;
@@ -377,6 +378,12 @@ html {
                 border-radius: 5px;
                 cursor: pointer;
                 margin: 20px 0;
+              }
+              p.error_message {
+                color: red;
+                font-size: 1.25rem;
+                position: absolute;
+                transform: translate(140%, -150%);
               }
             }
           }

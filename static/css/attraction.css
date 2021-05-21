@@ -387,6 +387,7 @@ html body main div.top section.right form div.form_content {
   line-height: 2.5rem;
   color: #666666;
   margin: 16px 20px;
+  position: relative;
 }
 
 html body main div.top section.right form div.form_content span {
@@ -452,7 +453,7 @@ html body main div.top section.right form div.form_content .order_cost {
   display: flex;
 }
 
-html body main div.top section.right form div.form_content button {
+html body main div.top section.right form div.form_content button.reserved_button {
   color: white;
   background-color: #448899;
   border: none;
@@ -461,6 +462,14 @@ html body main div.top section.right form div.form_content button {
   border-radius: 5px;
   cursor: pointer;
   margin: 20px 0;
+}
+
+html body main div.top section.right form div.form_content p.error_message {
+  color: red;
+  font-size: 1.25rem;
+  position: absolute;
+  -webkit-transform: translate(140%, -150%);
+          transform: translate(140%, -150%);
 }
 
 html body main hr {
