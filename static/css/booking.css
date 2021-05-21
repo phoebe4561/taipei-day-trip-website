@@ -14,6 +14,17 @@ h6 {
   font-weight: normal;
 }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
 body header {
   position: -webkit-sticky;
   position: sticky;
@@ -139,11 +150,6 @@ body section.popup div.popup_container form button {
   margin: 10px auto;
 }
 
-body section.popup div.popup_container form #signin_successAlert {
-  text-align: center;
-  color: green;
-}
-
 body section.popup div.popup_container form #signin_errorAlert {
   text-align: center;
   color: red;
@@ -161,6 +167,12 @@ body section.popup div.popup_container form div.a_tag a {
 }
 
 body main {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -168,84 +180,82 @@ body main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow: hidden;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-body main h4 {
+body main .imgcontainer {
+  overflow: hidden;
+  max-width: 1200px;
+  width: 100%;
+}
+
+body main .imgcontainer h4 {
   font-size: 1.25rem;
-  margin: 45px 100px 15px 100px;
+  margin: 30px 100px;
   font-weight: bolder;
 }
 
-body main #no_order {
-  margin: 15px 100px;
+body main .imgcontainer #no_order {
+  margin: 15px 100px 45px 100px;
+  font-size: 1.25rem;
 }
 
-body main .schedule {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+body main .imgcontainer .schedule {
   margin: 0 100px;
 }
 
-body main .schedule .bolder {
+body main .imgcontainer .schedule .bolder {
   font-weight: bolder;
 }
 
-body main .schedule span.normal {
+body main .imgcontainer .schedule span.normal {
   font-weight: normal;
   padding-left: 5px;
 }
 
-body main .schedule .schedule_content {
+body main .imgcontainer .schedule .schedule_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
 }
 
-body main .schedule .schedule_content .left_imgcontainer {
+body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
   max-width: 266px;
   height: 200px;
 }
 
-body main .schedule .schedule_content .left_imgcontainer img {
+body main .imgcontainer .schedule .schedule_content .left_imgcontainer img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-body main .schedule .schedule_content .right {
+body main .imgcontainer .schedule .schedule_content .right {
   margin-left: 22px;
 }
 
-body main .schedule .schedule_content .right h4 {
+body main .imgcontainer .schedule .schedule_content .right h4 {
   color: #448899;
   margin: 0 0 30px 0;
 }
 
-body main .schedule .schedule_content .right p {
+body main .imgcontainer .schedule .schedule_content .right p {
   line-height: 30px;
 }
 
-body main .schedule .schedule_content .trushBtn {
+body main .imgcontainer .schedule .schedule_content .trushBtn {
   position: absolute;
-  right: 5px;
+  right: 0;
+  cursor: pointer;
 }
 
-body main hr {
+body main .imgcontainer hr {
   width: 1200px;
   margin: 45px auto;
 }
 
-body main form {
+body main .imgcontainer form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,22 +270,22 @@ body main form {
           justify-content: center;
 }
 
-body main form h4 {
+body main .imgcontainer form h4 {
   font-size: 1.25rem;
   font-weight: bolder;
   margin: 0 0 24px 0;
 }
 
-body main form .pay_form {
+body main .imgcontainer form .pay_form {
   width: 100%;
 }
 
-body main form .pay_form .pay_form_up,
-body main form .pay_form .pay_form_down {
+body main .imgcontainer form .pay_form .pay_form_up,
+body main .imgcontainer form .pay_form .pay_form_down {
   margin: 0 100px;
 }
 
-body main form .pay_form input {
+body main .imgcontainer form .pay_form input {
   width: 200px;
   height: 38px;
   margin: 15px 0;
@@ -285,7 +295,7 @@ body main form .pay_form input {
   font-size: 1rem;
 }
 
-body main form .pay_button {
+body main .imgcontainer form .pay_button {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -299,11 +309,11 @@ body main form .pay_button {
           align-items: flex-end;
 }
 
-body main form .pay_button h4 {
+body main .imgcontainer form .pay_button h4 {
   margin-right: 100px;
 }
 
-body main form .pay_button .payBtn {
+body main .imgcontainer form .pay_button .payBtn {
   background-color: #448899;
   color: white;
   font-size: 1.25rem;
@@ -409,6 +419,9 @@ body footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
@@ -426,50 +439,60 @@ body footer h4 {
   font-size: 1rem;
 }
 
-@media screen and (max-width: 750px) {
-  body main h4 {
-    margin: 35px 20px 0 20px;
+@media screen and (max-width: 780px) {
+  body header nav div.logo {
+    margin-left: 10px;
   }
-  body main .schedule {
+  body header nav .menu {
+    margin-right: 10px;
+  }
+  body main .imgcontainer #no_order {
+    margin: 0 20px 35px 20px;
+  }
+  body main .imgcontainer h4 {
+    margin: 35px 20px;
+  }
+  body main .imgcontainer .schedule {
     margin: 0 20px;
   }
-  body main .schedule .schedule_content {
+  body main .imgcontainer .schedule .schedule_content {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  body main .schedule .schedule_content .trushBtn {
-    top: 550px;
+  body main .imgcontainer .schedule .schedule_content .trushBtn {
+    top: 580px;
   }
-  body main .schedule .schedule_content .left_imgcontainer {
+  body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
     width: 100%;
     max-width: 750px;
     height: auto;
   }
-  body main .schedule .schedule_content .right {
+  body main .imgcontainer .schedule .schedule_content .right {
     margin-left: 0px;
   }
-  body main .schedule .schedule_content .right h4 {
+  body main .imgcontainer .schedule .schedule_content .right h4 {
     margin: 30px 0;
   }
-  body main form .pay_form .pay_form_up,
-  body main form .pay_form .pay_form_down {
+  body main .imgcontainer form .pay_form .pay_form_up,
+  body main .imgcontainer form .pay_form .pay_form_down {
     margin: 0 20px;
   }
-  body main form .pay_button h4,
-  body main form .pay_button .payBtn {
+  body main .imgcontainer form .pay_button h4,
+  body main .imgcontainer form .pay_button .payBtn {
     margin-right: 20px;
   }
 }
 
-@media screen and (max-width: 500px) {
-  body main .schedule .schedule_content .trushBtn {
-    top: 370px;
+@media screen and (max-width: 535px) {
+  body main .imgcontainer .schedule .schedule_content .trushBtn {
+    top: 450px;
     font-size: small;
   }
-  body main .schedule .schedule_content .left_imgcontainer {
+  body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
     width: 100%;
+    height: 250px;
   }
 }
 /*# sourceMappingURL=booking.css.map */

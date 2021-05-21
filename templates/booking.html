@@ -22,7 +22,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a>台北一日遊</a>
+                <a href="http://127.0.0.1:3000/">台北一日遊</a>
             </div>           
             <ul class="menu">
                 <li><a class="reservedBtn">預定行程</a></li>
@@ -43,12 +43,9 @@
                 <label for="pw"></label>
                 <input type="password" id="pw" name="pw" placeholder="請輸入密碼" required>
                 <button>登入帳戶</button>
-
-                <div id="signin_successAlert"></div>
                 <div id="signin_errorAlert"></div>
-
                 <div class="a_tag">
-                    <a class="signup_button">還沒有帳戶?點此註冊</a>
+                    <a class="signup_button">還沒有帳戶?點此<span class="border">註冊</span></a>
                 </div>
             </form>
         </div>
@@ -72,76 +69,82 @@
                 <div id="signup_errorAlert"></div>
 
                 <div class="a_tag">
-                    <a class="signin_button">已經有帳戶了?點此登入</a>
+                    <a class="form_signinBtn">已經有帳戶了?點此<span class="border">登入</span></a>
                 </div>
             </form>
         </div>
     </section>
     
     <main>
-        <h4 class="bolder">您好，<span class="username">Amy</span>，待預定的行程如下:</h4>
-        
-        <p id="no_order"></p>
-        
-        <section class=ok_order>
+        <div class="imgcontainer">
 
-            <div class="schedule">
-                <div class="schedule_content">
-                    <div class="left_imgcontainer">
-                        <img id="spotPic" src="http://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000340.jpg" alt="景點照">
-                    </div>
-                    <div class="right">
-                        <h4 class="bolder">台北一日遊:<span id="spotName">平安鐘</span></h4>
-                        <p class="bolder">日期:<span class="normal" id="spotDate">2021-04-23</span></p>
-                        <p class="bolder">時間:<span class="normal" id="spotTime">早上 9 點到下午 4 點</span></p>
-                        <p class="bolder">費用:<span class="normal" id="spotCost">新台幣2000元</span></p>
-                        <p class="bolder">地點:<span class="normal" id="spotAddress">臺北市 大安區忠孝東路4段</span></p>
-                    </div>
-                    <div class="trushBtn"><i class="fas fa-trash-alt fa-2x"></i></div>
-                </div>
-            </div>
-           
-            <hr>
+            <h4 class="bolder">您好，<span class="username">Amy</span>，待預定的行程如下:</h4>
+            
+            <p id="no_order"></p>
+            
+            <section class=ok_order>
     
-            <form action="">
-                <div class="pay_form">
-                    <div class="pay_form_up">
-                        <h4>您的聯絡資訊</h4>
-                        <label for="pay_name">聯絡姓名:</label>
-                        <input type="text" id="pay_name" name="pay_name" required>
-                        <br>
-                        <label for="pay_email">聯絡信箱:</label>
-                        <input type="email" id="pay_email" name="pay_email" required>
-                        <br>
-                        <label for="pay_phone">手機號碼:</label>
-                        <input type="text" id="pay_phone" name="pay_phone" required>
-                        <br>
-                        <p>請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</p>
+                <div class="schedule">
+                    <div class="schedule_content">
+                        <div class="left_imgcontainer">
+                            <img id="spotPic" src="https://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11000848.jpg" alt="景點照">
+                        </div>
+                        <div class="right">
+                            <h4 class="bolder">台北一日遊:<span id="spotName">平安鐘</span></h4>
+                            <p class="bolder">日期:<span class="normal" id="spotDate">2021-04-23</span></p>
+                            <p class="bolder">時間:<span class="normal" id="spotTime">早上 9 點到下午 4 點</span></p>
+                            <p class="bolder">費用:<span class="normal" id="spotCost">新台幣2000元</span></p>
+                            <p class="bolder">地點:<span class="normal" id="spotAddress">臺北市 大安區忠孝東路4段</span></p>
+                        </div>
+                        <div class="trushBtn"><i class="fas fa-trash-alt fa-2x"></i></div>
+                    </div>
+                </div>
+               
+                <hr>
+        
+                <form action="">
+                    <div class="pay_form">
+                        <div class="pay_form_up">
+                            <h4>您的聯絡資訊</h4>
+                            <label for="pay_name">聯絡姓名:</label>
+                            <input type="text" id="pay_name" name="pay_name" required>
+                            <br>
+                            <label for="pay_email">聯絡信箱:</label>
+                            <input type="email" id="pay_email" name="pay_email" required>
+                            <br>
+                            <label for="pay_phone">手機號碼:</label>
+                            <input type="text" id="pay_phone" name="pay_phone" required>
+                            <br>
+                            <p>請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</p>
+                        </div>
+            
+                <hr>
+            
+                        <div class="pay_form_down">
+                            <h4>信用卡付款資訊</h4>
+                            <label for="pay_card">卡片號碼:</label>
+                            <input type="password" id="pay_card" name="pay_card" placeholder="**** **** **** ****" required>
+                            <br>
+                            <label for="pay_expired_date">過期時間:</label>
+                            <input type="email" id="pay_expired_date" name="pay_expired_date" placeholder="MM/YY" required>
+                            <br>
+                            <label for="pay_password">驗證密碼:</label>
+                            <input type="text" id="pay_password" name="pay_password" placeholder="CVV" required>
+                        </div>
+                        
+                <hr>
                     </div>
         
-            <hr>
-        
-                    <div class="pay_form_down">
-                        <h4>信用卡付款資訊</h4>
-                        <label for="pay_card">卡片號碼:</label>
-                        <input type="password" id="pay_card" name="pay_card" placeholder="**** **** **** ****" required>
-                        <br>
-                        <label for="pay_expired_date">過期時間:</label>
-                        <input type="email" id="pay_expired_date" name="pay_expired_date" placeholder="MM/YY" required>
-                        <br>
-                        <label for="pay_password">驗證密碼:</label>
-                        <input type="text" id="pay_password" name="pay_password" placeholder="CVV" required>
+                    <div class="pay_button">             
+                        <h4>總價：<span id="spotCost">新台幣 2000 元</span></h4>
+                        <button class="payBtn">確認訂購並付款</button>
                     </div>
-                    
-            <hr>
-                </div>
-    
-                <div class="pay_button">             
-                    <h4>總價：<span id="spotCost">新台幣 2000 元</span></h4>
-                    <button class="payBtn">確認訂購並付款</button>
-                </div>
-            </form>
-        </section>
+                </form>
+            </section>
+        </div>
+
+
+
 
     </main>
 
@@ -150,5 +153,5 @@
     </footer>
 </body>
 <script src="{{url_for('static', filename = 'js/booking.js')}}"></script>
-<script src="{{url_for('static', filename = 'js/navbar.js')}}"></script>
+<script src="{{url_for('static', filename = 'js/login.js')}}"></script>
 </html>

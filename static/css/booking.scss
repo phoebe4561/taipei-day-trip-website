@@ -14,6 +14,9 @@ h6 {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   header {
     position: sticky;
     z-index: 5;
@@ -115,10 +118,6 @@ body {
           display: block;
           margin: 10px auto;
         }
-        #signin_successAlert {
-          text-align: center;
-          color: green;
-        }
         #signin_errorAlert {
           text-align: center;
           color: red;
@@ -136,109 +135,110 @@ body {
     }
   }
   main {
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    max-width: 1200px;
-    margin: 0 auto;
-    h4 {
-      font-size: 1.25rem;
-      margin: 45px 100px 15px 100px;
-      font-weight: bolder;
-    }
-    #no_order {
-      margin: 15px 100px;
-    }
-    .schedule {
-      display: flex;
-      flex-direction: column;
-      margin: 0 100px;
-      .bolder {
-        font-weight: bolder;
-      }
-      span.normal {
-        font-weight: normal;
-        padding-left: 5px;
-      }
-      .schedule_content {
-        display: flex;
-        position: relative;
-        .left_imgcontainer {
-          max-width: 266px;
-          height: 200px;
-
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-        .right {
-          margin-left: 22px;
-          h4 {
-            color: rgba(68, 136, 153, 1);
-            margin: 0 0 30px 0;
-          }
-          p {
-            line-height: 30px;
-          }
-        }
-        .trushBtn {
-          position: absolute;
-          right: 5px;
-        }
-      }
-    }
-    hr {
-      width: 1200px;
-      margin: 45px auto;
-    }
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      // margin: 0 auto;
-      justify-content: center;
-      // align-items: center;
+    .imgcontainer {
+      overflow: hidden;
+      max-width: 1200px;
+      width: 100%;
       h4 {
         font-size: 1.25rem;
+        margin: 30px 100px;
         font-weight: bolder;
-        margin: 0 0 24px 0;
       }
-      .pay_form {
-        width: 100%;
-        .pay_form_up,
-        .pay_form_down {
-          margin: 0 100px;
+      #no_order {
+        margin: 15px 100px 45px 100px;
+        font-size: 1.25rem;
+      }
+      .schedule {
+        margin: 0 100px;
+        .bolder {
+          font-weight: bolder;
         }
-        input {
-          width: 200px;
-          height: 38px;
-          margin: 15px 0;
-          padding: 10px;
-          border-radius: 5px;
-          border: 1px solid rgba(232, 232, 232, 1);
-          font-size: 1rem;
+        span.normal {
+          font-weight: normal;
+          padding-left: 5px;
+        }
+        .schedule_content {
+          display: flex;
+          position: relative;
+          .left_imgcontainer {
+            max-width: 266px;
+            height: 200px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .right {
+            margin-left: 22px;
+            h4 {
+              color: rgba(68, 136, 153, 1);
+              margin: 0 0 30px 0;
+            }
+            p {
+              line-height: 30px;
+            }
+          }
+          .trushBtn {
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+          }
         }
       }
-      .pay_button {
-        width: 100%;
+      hr {
+        width: 1200px;
+        margin: 45px auto;
+      }
+      form {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
-        align-items: flex-end;
+        justify-content: center;
         h4 {
-          margin-right: 100px;
-        }
-        .payBtn {
-          background-color: rgba(68, 136, 153, 1);
-          color: white;
           font-size: 1.25rem;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 5px;
-          cursor: pointer;
-          margin-bottom: 72px;
-          margin-right: 100px;
+          font-weight: bolder;
+          margin: 0 0 24px 0;
+        }
+        .pay_form {
+          width: 100%;
+          .pay_form_up,
+          .pay_form_down {
+            margin: 0 100px;
+          }
+          input {
+            width: 200px;
+            height: 38px;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(232, 232, 232, 1);
+            font-size: 1rem;
+          }
+        }
+        .pay_button {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          h4 {
+            margin-right: 100px;
+          }
+          .payBtn {
+            background-color: rgba(68, 136, 153, 1);
+            color: white;
+            font-size: 1.25rem;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 72px;
+            margin-right: 100px;
+          }
         }
       }
     }
@@ -328,6 +328,7 @@ body {
   }
   footer {
     display: flex;
+    flex-grow: 1;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -338,57 +339,75 @@ body {
       font-size: 1rem;
     }
   }
-  @media screen and (max-width: 750px) {
-    main {
-      h4 {
-        margin: 35px 20px 0 20px;
+  @media screen and (max-width: 780px) {
+    header {
+      nav {
+        div.logo {
+          margin-left: 10px;
+        }
+        .menu {
+          margin-right: 10px;
+        }
       }
-      .schedule {
-        margin: 0 20px;
-        .schedule_content {
-          flex-direction: column;
-          .trushBtn {
-            top: 550px;
-          }
-          .left_imgcontainer {
-            width: 100%;
-            max-width: 750px;
-            height: auto;
-          }
-          .right {
-            margin-left: 0px;
-            h4 {
-              margin: 30px 0;
+    }
+    main {
+      .imgcontainer {
+        #no_order {
+          margin: 0 20px 35px 20px;
+        }
+        h4 {
+          margin: 35px 20px;
+        }
+        .schedule {
+          margin: 0 20px;
+          .schedule_content {
+            flex-direction: column;
+            .trushBtn {
+              top: 580px;
+            }
+            .left_imgcontainer {
+              width: 100%;
+              max-width: 750px;
+              height: auto;
+            }
+            .right {
+              margin-left: 0px;
+              h4 {
+                margin: 30px 0;
+              }
             }
           }
         }
-      }
-      form {
-        .pay_form {
-          .pay_form_up,
-          .pay_form_down {
-            margin: 0 20px;
+        form {
+          .pay_form {
+            .pay_form_up,
+            .pay_form_down {
+              margin: 0 20px;
+            }
           }
-        }
-        .pay_button {
-          h4,
-          .payBtn {
-            margin-right: 20px;
+          .pay_button {
+            h4,
+            .payBtn {
+              margin-right: 20px;
+            }
           }
         }
       }
     }
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 535px) {
     main {
-      .schedule {
-        .schedule_content {
-          .trushBtn {
-            top: 370px;
-            font-size: small;
-          }
-          .left_imgcontainer {
-            width: 100%;
+      .imgcontainer {
+        .schedule {
+          .schedule_content {
+            .trushBtn {
+              top: 450px;
+              font-size: small;
+            }
+            .left_imgcontainer {
+              width: 100%;
+              height: 250px;
+            }
           }
         }
       }
