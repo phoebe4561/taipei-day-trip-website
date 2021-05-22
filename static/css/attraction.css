@@ -50,12 +50,19 @@ html body header nav {
 
 html body header nav div.logo {
   margin: 0.5rem 0;
+  cursor: pointer;
 }
 
 html body header nav div.logo a {
   color: #448899;
   text-decoration: none;
   font-size: 2rem;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+html body header nav div.logo a:hover {
+  opacity: 0.8;
 }
 
 html body header nav ul {
@@ -70,6 +77,7 @@ html body header nav ul {
 
 html body header nav ul li {
   list-style-type: none;
+  cursor: pointer;
 }
 
 html body header nav ul li a {
@@ -77,13 +85,19 @@ html body header nav ul li a {
   color: #666666;
   padding: 0.5rem;
   font-size: 1rem;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+html body header nav ul li a:hover {
+  opacity: 0.8;
 }
 
 html body section.popup {
   background: rgba(0, 0, 0, 0.25);
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   display: none;
   -webkit-box-pack: center;
@@ -117,6 +131,10 @@ html body section.popup div.popup_container div.close_button {
   cursor: pointer;
 }
 
+html body section.popup div.popup_container div.close_button:hover {
+  font-size: 2.5rem;
+}
+
 html body section.popup div.popup_container form h3 {
   color: #666666;
   font-size: 1.5rem;
@@ -147,6 +165,12 @@ html body section.popup div.popup_container form button {
   cursor: pointer;
   display: block;
   margin: 10px auto;
+  -webkit-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
+}
+
+html body section.popup div.popup_container form button:hover {
+  opacity: 0.8;
 }
 
 html body section.popup div.popup_container form #signin_errorAlert {
@@ -169,10 +193,14 @@ html body section.popup div.popup_container form div.a_tag a span.border {
   font-weight: bolder;
 }
 
+html body section.popup div.popup_container form div.a_tag a span.border:hover {
+  color: red;
+}
+
 html body section.signup_popup {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   display: none;
   -webkit-box-pack: center;
@@ -206,6 +234,10 @@ html body section.signup_popup div.signup_popup_container div.signup_close_butto
   cursor: pointer;
 }
 
+html body section.signup_popup div.signup_popup_container div.signup_close_button:hover {
+  font-size: 2.5rem;
+}
+
 html body section.signup_popup div.signup_popup_container form h3 {
   color: #666666;
   font-size: 1.5rem;
@@ -236,6 +268,12 @@ html body section.signup_popup div.signup_popup_container form button {
   cursor: pointer;
   display: block;
   margin: 10px auto;
+  -webkit-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
+}
+
+html body section.signup_popup div.signup_popup_container form button:hover {
+  opacity: 0.8;
 }
 
 html body section.signup_popup div.signup_popup_container form #signup_successAlert {
@@ -261,6 +299,10 @@ html body section.signup_popup div.signup_popup_container form div.a_tag a {
 
 html body section.signup_popup div.signup_popup_container form div.a_tag a span.border {
   font-weight: bolder;
+}
+
+html body section.signup_popup div.signup_popup_container form div.a_tag a span.border:hover {
+  color: red;
 }
 
 html body main {
@@ -387,6 +429,7 @@ html body main div.top section.right form div.form_content {
   line-height: 2.5rem;
   color: #666666;
   margin: 16px 20px;
+  position: relative;
 }
 
 html body main div.top section.right form div.form_content span {
@@ -452,7 +495,7 @@ html body main div.top section.right form div.form_content .order_cost {
   display: flex;
 }
 
-html body main div.top section.right form div.form_content button {
+html body main div.top section.right form div.form_content button.reserved_button {
   color: white;
   background-color: #448899;
   border: none;
@@ -461,6 +504,20 @@ html body main div.top section.right form div.form_content button {
   border-radius: 5px;
   cursor: pointer;
   margin: 20px 0;
+  -webkit-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
+}
+
+html body main div.top section.right form div.form_content button.reserved_button:hover {
+  opacity: 0.8;
+}
+
+html body main div.top section.right form div.form_content p.error_message {
+  color: red;
+  font-size: 1.25rem;
+  position: absolute;
+  -webkit-transform: translate(140%, -150%);
+          transform: translate(140%, -150%);
 }
 
 html body main hr {

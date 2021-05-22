@@ -22,11 +22,11 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="http://127.0.0.1:3000/">台北一日遊</a>
+                <a href="/">台北一日遊</a>
             </div>           
             <ul class="menu">
-                <li><a href="#">預定行程</a></li>
-                <li><a href="#" class="signin_button">登入/註冊</a></li>
+                <li><a class="reservedBtn">預定行程</a></li>
+                <li><a class="signin_button">登入/註冊</a></li>
             </ul>
         </nav>
     </header>
@@ -45,7 +45,7 @@
                 <button>登入帳戶</button>
                 <div id="signin_errorAlert"></div>
                 <div class="a_tag">
-                    <a href="#" class="signup_button">還沒有帳戶?點此<span class="border">註冊</span></a>
+                    <a class="signup_button">還沒有帳戶?點此<span class="border">註冊</span></a>
                 </div>
             </form>
         </div>
@@ -69,7 +69,7 @@
                 <div id="signup_errorAlert"></div>
 
                 <div class="a_tag">
-                    <a href="#" class="form_signinBtn">已經有帳戶了?點此<span class="border">登入</span></a>
+                    <a class="form_signinBtn">已經有帳戶了?點此<span class="border">登入</span></a>
                 </div>
             </form>
         </div>
@@ -98,16 +98,16 @@
                         <p>以此景點為中心的一日行程，帶您探索城市角落故事</p>
                         <div class="order_date">                           
                             <span>訂購日期:</span>
-                            <input id="order_date" name="order_date" type="date">
+                            <input id="order_date" name="date" type="date">
                         </div>
                         <div class="order_time">
                             <span>選擇時間:</span>
                             <div class="morning">
-                                <input type="radio" id="morning" name="chooseTime">
+                                <input type="radio" id="morning" name="time" value="morning" checked>
                                 <label for="morning">上半天</label>
                             </div>
                             <div class="afternoon">
-                                <input type="radio" id="afternoon" name="chooseTime">
+                                <input type="radio" id="afternoon" name="time" value="afternoon">
                                 <label for="afternoon">下半天</label>
                             </div>
                         </div>
@@ -115,7 +115,8 @@
                             <span>導覽費用:</span>
                             <p class="money">新台幣2000元</p>
                         </div>
-                        <button>開始預訂行程</button>
+                        <button class="reserved_button">開始預訂行程</button>
+                        <p class="error_message"></p>
                     </div>
                 </form>
             </section>

@@ -58,6 +58,22 @@ class user_tb(db.Model):
 		self.name = name
 		self.password = password
 
+class booking_tb(db.Model):
+	__table_args__ = {
+		'comment': 'Notice booking_table'
+		}
+	id = db.Column(db.Integer, primary_key = True, autoincrement = True, comment='景點編號') 
+	attractionId = db.Column(db.Integer, db.ForeignKey('attraction_tb.id'), comment='訂單景點編號')
+	date = db.Column(db.String(50), nullable = False, comment = '預約日期')
+	time = db.Column(db.String(50), nullable = False, comment = '預約時間') 
+	price = db.Column(db.String(50), nullable = False, comment = '景點價格')
+	
+	def __init__ (self,attractionId,date,time,price):
+		self.attractionId = attractionId
+		self.date = date
+		self.time = time
+		self.price = price
+
 # Pages
 @app.route("/load")
 def load():
@@ -210,6 +226,58 @@ def signout_user():
 		session.pop("email")
 		return jsonify({"ok":True})
 
+
+@app.route("/api/booking", methods=["GET","POST","DELETE"])
+def get_booking_data():
+	if 'email' not in session:
+		return jsonify({"error":True, "message":"未登入系統"}),403
+	if request.method == "POST":
+		try:
+			data=request.get_json()
+			print(data)	
+			attractionId=data.get("attractionId")
+			date = data.get("date")
+			time = data.get("time")
+			price = data.get("price")
+			if date and time and price:
+				new_booking=booking_tb(attractionId=attractionId,date=date,time=time,price=price)
+				print(new_booking)
+				db.session.add(new_booking)
+				db.session.commit()
+				return jsonify({"ok":True})
+			else:
+				return jsonify({"error":True,"message":"訂單失敗,有資料未輸入"}),400
+		except:
+			return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
+	
+	if request.method == "GET":
+		
+		booking="SELECT booking_tb.*,attraction_tb.name,attraction_tb.address,attraction_tb.images FROM booking_tb INNER JOIN attraction_tb ON booking_tb.attractionId = attraction_tb.id"		
+		
+		booking_data = db.engine.execute(booking)
+		res = {"data":None}
+		for row in booking_data:	
+			res = {
+				"data":{
+					"attraction":{
+						"id":row[1],
+						"name":row[5],
+						"address":row[6],
+						"image":row[7].split(";")[0]
+						},
+				"date":row[2],
+				"time":row[3],
+				"price":row[4]
+				}
+			}
+		return jsonify(res)
+
+	
+	if request.method=="DELETE":
+		db.session.query(booking_tb).delete()
+		db.session.commit()
+		return jsonify({"ok":True})
+	return jsonify({"error":True})
 
 if __name__=='__main__':
 	db.create_all()

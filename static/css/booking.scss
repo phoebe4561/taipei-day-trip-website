@@ -14,20 +14,22 @@ h6 {
 }
 
 body {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   header {
-    position: fixed;
+    position: sticky;
     z-index: 5;
     top: 0;
     width: 100%;
+    background-color: white;
+    box-shadow: 2px 2px 5px 1px rgb(128, 128, 128);
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       max-width: 1200px;
       margin: 0 auto;
-      flex-wrap: wrap;
       div.logo {
         margin: 0.5rem 0;
         cursor: pointer;
@@ -250,114 +252,110 @@ body {
       }
     }
   }
-
-  div.blank {
-    width: 100%;
-    height: 58.67px;
-    flex-shrink: 0;
-  }
-
-  section.banner {
-    display: flex;
-    width: 100%;
-    min-height: 320px;
-    background: linear-gradient(135deg, #aaddee 0%, #66aabb 100%);
-    overflow: hidden;
-    div.left {
-      display: flex;
-      flex: 4 1 600px;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-      line-height: 4rem;
-      h2 {
-        font-size: 1.75rem;
-      }
-      h4 {
-        font-size: 1rem;
-      }
-      form.search_spot {
-        display: flex;
-        margin-left: 11rem;
-        input {
-          width: 400px;
-          height: 46px;
-          border: none;
-          border-radius: 10px 0 0 10px;
-          font-size: 1rem;
-          color: #757575;
-          padding: 1rem;
-        }
-        button.search_icon {
-          background-color: #448899;
-          width: 60px;
-          height: 46px;
-          border-radius: 0 10px 10px 0;
-          border: none;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          &:hover {
-            opacity: 0.8;
-          }
-          transition: 0.3s all ease;
-        }
-      }
-    }
-    div.right {
-      flex: 3 1 600px;
-      position: relative;
-      img {
-        position: absolute;
-        width: 650px;
-        height: 320px;
-      }
-    }
-  }
-
   main {
-    padding-bottom: 55px;
-    display: flex;
     justify-content: center;
-    padding-top: 3.5rem;
-    div.cards {
-      display: flex;
-      flex-wrap: wrap;
-      width: 1200px;
-      div.mycard {
-        display: flex;
-        flex-direction: column;
-        width: calc(25% - 30px);
-        margin: 15px;
-        div.imgContainer {
-          border: #e8e8e8 1px solid;
-          border-radius: 10px;
-          :hover {
-            opacity: 0.8;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    .imgcontainer {
+      overflow: hidden;
+      max-width: 1200px;
+      width: 100%;
+      h4 {
+        font-size: 1.25rem;
+        margin: 30px 100px;
+        font-weight: bolder;
+      }
+      #no_order {
+        margin: 15px 100px 45px 100px;
+        font-size: 1.25rem;
+      }
+      .schedule {
+        margin: 0 100px;
+        .bolder {
+          font-weight: bolder;
+        }
+        span.normal {
+          font-weight: normal;
+          padding-left: 5px;
+        }
+        .schedule_content {
+          display: flex;
+          position: relative;
+          .left_imgcontainer {
+            max-width: 266px;
+            height: 200px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
           }
-          img {
-            width: 100%;
-            height: 202px;
-            border-radius: 10px 10px 0 0;
-            object-fit: cover;
-            transition: 0.3s opacity ease-in;
-            overflow: hidden;
+          .right {
+            margin-left: 22px;
+            h4 {
+              color: rgba(68, 136, 153, 1);
+              margin: 0 0 30px 0;
+            }
+            p {
+              line-height: 30px;
+            }
+          }
+          .trushBtn {
+            position: absolute;
+            right: 0;
             cursor: pointer;
           }
-          h3 {
-            font-size: 1rem;
-            font-weight: bolder;
-            margin: 8px 6px 7.5px 6px;
+        }
+      }
+      hr {
+        width: 1200px;
+        margin: 45px auto;
+      }
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        h4 {
+          font-size: 1.25rem;
+          font-weight: bolder;
+          margin: 0 0 24px 0;
+        }
+        .pay_form {
+          width: 100%;
+          .pay_form_up,
+          .pay_form_down {
+            margin: 0 100px;
           }
-          div.pContainer {
-            display: flex;
-            justify-content: space-between;
-            p {
-              font-size: 1rem;
-              margin: 7.5px 6px 12px 6px;
-            }
+          input {
+            width: 200px;
+            height: 38px;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(232, 232, 232, 1);
+            font-size: 1rem;
+          }
+        }
+        .pay_button {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          h4 {
+            margin-right: 100px;
+          }
+          .payBtn {
+            background-color: rgba(68, 136, 153, 1);
+            color: white;
+            font-size: 1.25rem;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 72px;
+            margin-right: 100px;
           }
         }
       }
@@ -365,8 +363,8 @@ body {
   }
 
   footer {
-    flex-grow: 1;
     display: flex;
+    flex-grow: 1;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -377,108 +375,77 @@ body {
       font-size: 1rem;
     }
   }
-
-  @media screen and (max-width: 1200px) {
-    header {
-      nav {
-        div.logo {
-          margin-left: 5rem;
-        }
-        ul {
-          margin-right: 5rem;
-        }
-      }
-    }
-    section.banner {
-      div.left {
-        flex: 1 1 400px;
-        form.search_spot {
-          margin-left: 5rem;
-          input {
-            width: 300px;
-          }
-        }
-      }
-      div.right {
-        flex: 1 1 600px;
-        position: relative;
-        img {
-          width: 90%;
-          height: auto;
-          position: absolute;
-          bottom: 0;
-        }
-      }
-    }
-    main {
-      div.cards {
-        width: 90%;
-        margin: 0 auto;
-        div.mycard {
-          width: calc(50% - 30px);
-          div.imgContainer {
-            img {
-              height: calc((50vw - 30px) * 0.6);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     header {
       nav {
         div.logo {
           margin-left: 10px;
         }
-        ul {
+        .menu {
           margin-right: 10px;
         }
       }
     }
-    section.banner {
-      div.left {
-        z-index: 2;
-        flex: 2 1 150px;
-        form.search_spot {
-          margin-left: 1.5rem;
-          input {
-            width: 230px;
+    main {
+      .imgcontainer {
+        #no_order {
+          margin: 0 20px 35px 20px;
+        }
+        h4 {
+          margin: 35px 20px;
+        }
+        .schedule {
+          margin: 0 20px;
+          .schedule_content {
+            flex-direction: column;
+            .trushBtn {
+              top: 650px;
+            }
+            .left_imgcontainer {
+              width: 100%;
+              max-width: 1000px;
+              min-height: 450px;
+              // height: auto;
+            }
+            .right {
+              margin-left: 0px;
+              h4 {
+                margin: 30px 0;
+              }
+            }
           }
         }
-      }
-      div.right {
-        flex: 1 1 300px;
-        img {
-          width: 150%;
-          height: auto;
-          z-index: 1;
-        }
-      }
-    }
-    main {
-      div.cards {
-        div.mycard {
-          width: 100%;
-          div.imgContainer {
-            img {
-              height: calc((100vw - 30px) * 0.6);
+        form {
+          .pay_form {
+            .pay_form_up,
+            .pay_form_down {
+              margin: 0 20px;
+            }
+          }
+          .pay_button {
+            h4,
+            .payBtn {
+              margin-right: 20px;
             }
           }
         }
       }
     }
   }
-
-  @media screen and (max-width: 450px) {
-    section.banner {
-      div.right {
-        img {
-          width: 276px;
-          height: 148px;
-          right: -20vw;
-          transform: translateY(5%);
+  @media screen and (max-width: 600px) {
+    main {
+      .imgcontainer {
+        .schedule {
+          .schedule_content {
+            .trushBtn {
+              top: 460px;
+              font-size: small;
+            }
+            .left_imgcontainer {
+              width: 100%;
+              min-height: 250px;
+            }
+          }
         }
       }
     }

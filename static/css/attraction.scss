@@ -35,10 +35,15 @@ html {
         margin: 0 auto;
         div.logo {
           margin: 0.5rem 0;
+          cursor: pointer;
           a {
             color: #448899;
             text-decoration: none;
             font-size: 2rem;
+            &:hover {
+              opacity: 0.8;
+            }
+            transition: 0.3s all ease;
           }
         }
         ul {
@@ -47,11 +52,16 @@ html {
           margin: 0.5rem 0;
           li {
             list-style-type: none;
+            cursor: pointer;
             a {
               text-decoration: none;
               color: #666666;
               padding: 0.5rem;
               font-size: 1rem;
+              &:hover {
+                opacity: 0.8;
+              }
+              transition: 0.3s all ease;
             }
           }
         }
@@ -61,7 +71,7 @@ html {
       background: rgba(0, 0, 0, 0.25);
       width: 100%;
       height: 100vh;
-      position: absolute;
+      position: fixed;
       top: 0;
       display: none;
       justify-content: center;
@@ -89,6 +99,9 @@ html {
           left: 300px;
           font-size: 2rem;
           cursor: pointer;
+          &:hover {
+            font-size: 2.5rem;
+          }
         }
         form {
           h3 {
@@ -119,6 +132,10 @@ html {
             cursor: pointer;
             display: block;
             margin: 10px auto;
+            &:hover {
+              opacity: 0.8;
+            }
+            transition: 0.3s all ease-in;
           }
           #signin_errorAlert {
             text-align: center;
@@ -133,6 +150,9 @@ html {
               margin: 0 auto;
               span.border {
                 font-weight: bolder;
+                &:hover {
+                  color: red;
+                }
               }
             }
           }
@@ -142,7 +162,7 @@ html {
     section.signup_popup {
       width: 100%;
       height: 100vh;
-      position: absolute;
+      position: fixed;
       top: 0;
       display: none;
       justify-content: center;
@@ -170,6 +190,9 @@ html {
           left: 300px;
           font-size: 2rem;
           cursor: pointer;
+          &:hover {
+            font-size: 2.5rem;
+          }
         }
         form {
           h3 {
@@ -200,6 +223,10 @@ html {
             cursor: pointer;
             display: block;
             margin: 10px auto;
+            &:hover {
+              opacity: 0.8;
+            }
+            transition: 0.3s all ease-in;
           }
           #signup_successAlert {
             text-align: center;
@@ -218,6 +245,9 @@ html {
               margin: 0 auto;
               span.border {
                 font-weight: bolder;
+                &:hover {
+                  color: red;
+                }
               }
             }
           }
@@ -316,6 +346,7 @@ html {
               line-height: 2.5rem;
               color: rgba(102, 102, 102, 1);
               margin: 16px 20px;
+              position: relative;
               span {
                 font-weight: bolder;
                 padding-right: 8px;
@@ -368,7 +399,7 @@ html {
               .order_cost {
                 display: flex;
               }
-              button {
+              button.reserved_button {
                 color: rgba(255, 255, 255, 1);
                 background-color: rgba(68, 136, 153, 1);
                 border: none;
@@ -377,6 +408,16 @@ html {
                 border-radius: 5px;
                 cursor: pointer;
                 margin: 20px 0;
+                &:hover {
+                  opacity: 0.8;
+                }
+                transition: 0.3s all ease-in;
+              }
+              p.error_message {
+                color: red;
+                font-size: 1.25rem;
+                position: absolute;
+                transform: translate(140%, -150%);
               }
             }
           }

@@ -15,7 +15,6 @@ h6 {
 }
 
 body {
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,26 +22,31 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 100vh;
 }
 
 body header {
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   z-index: 5;
   top: 0;
   width: 100%;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 5px 1px gray;
+          box-shadow: 2px 2px 5px 1px gray;
 }
 
 body header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 body header nav div.logo {
@@ -302,127 +306,137 @@ body section.signup_popup div.signup_popup_container form div.a_tag a span.borde
   color: red;
 }
 
-body div.blank {
-  width: 100%;
-  height: 58.67px;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-body section.banner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  min-height: 320px;
-  background: linear-gradient(135deg, #aaddee 0%, #66aabb 100%);
-  overflow: hidden;
-}
-
-body section.banner div.left {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 4;
-      -ms-flex: 4 1 600px;
-          flex: 4 1 600px;
+body main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: white;
-  line-height: 4rem;
 }
 
-body section.banner div.left h2 {
-  font-size: 1.75rem;
+body main .imgcontainer {
+  overflow: hidden;
+  max-width: 1200px;
+  width: 100%;
 }
 
-body section.banner div.left h4 {
-  font-size: 1rem;
+body main .imgcontainer h4 {
+  font-size: 1.25rem;
+  margin: 30px 100px;
+  font-weight: bolder;
 }
 
-body section.banner div.left form.search_spot {
+body main .imgcontainer #no_order {
+  margin: 15px 100px 45px 100px;
+  font-size: 1.25rem;
+}
+
+body main .imgcontainer .schedule {
+  margin: 0 100px;
+}
+
+body main .imgcontainer .schedule .bolder {
+  font-weight: bolder;
+}
+
+body main .imgcontainer .schedule span.normal {
+  font-weight: normal;
+  padding-left: 5px;
+}
+
+body main .imgcontainer .schedule .schedule_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 11rem;
-}
-
-body section.banner div.left form.search_spot input {
-  width: 400px;
-  height: 46px;
-  border: none;
-  border-radius: 10px 0 0 10px;
-  font-size: 1rem;
-  color: #757575;
-  padding: 1rem;
-}
-
-body section.banner div.left form.search_spot button.search_icon {
-  background-color: #448899;
-  width: 60px;
-  height: 46px;
-  border-radius: 0 10px 10px 0;
-  border: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-}
-
-body section.banner div.left form.search_spot button.search_icon:hover {
-  opacity: 0.8;
-}
-
-body section.banner div.right {
-  -webkit-box-flex: 3;
-      -ms-flex: 3 1 600px;
-          flex: 3 1 600px;
   position: relative;
 }
 
-body section.banner div.right img {
+body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
+  max-width: 266px;
+  height: 200px;
+}
+
+body main .imgcontainer .schedule .schedule_content .left_imgcontainer img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body main .imgcontainer .schedule .schedule_content .right {
+  margin-left: 22px;
+}
+
+body main .imgcontainer .schedule .schedule_content .right h4 {
+  color: #448899;
+  margin: 0 0 30px 0;
+}
+
+body main .imgcontainer .schedule .schedule_content .right p {
+  line-height: 30px;
+}
+
+body main .imgcontainer .schedule .schedule_content .trushBtn {
   position: absolute;
-  width: 650px;
-  height: 320px;
+  right: 0;
+  cursor: pointer;
 }
 
-body main {
-  padding-bottom: 55px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 3.5rem;
+body main .imgcontainer hr {
+  width: 1200px;
+  margin: 45px auto;
 }
 
-body main div.cards {
+body main .imgcontainer form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 1200px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-body main div.cards div.mycard {
+body main .imgcontainer form h4 {
+  font-size: 1.25rem;
+  font-weight: bolder;
+  margin: 0 0 24px 0;
+}
+
+body main .imgcontainer form .pay_form {
+  width: 100%;
+}
+
+body main .imgcontainer form .pay_form .pay_form_up,
+body main .imgcontainer form .pay_form .pay_form_down {
+  margin: 0 100px;
+}
+
+body main .imgcontainer form .pay_form input {
+  width: 200px;
+  height: 38px;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  font-size: 1rem;
+}
+
+body main .imgcontainer form .pay_button {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -430,58 +444,34 @@ body main div.cards div.mycard {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: calc(25% - 30px);
-  margin: 15px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
-body main div.cards div.mycard div.imgContainer {
-  border: #e8e8e8 1px solid;
-  border-radius: 10px;
+body main .imgcontainer form .pay_button h4 {
+  margin-right: 100px;
 }
 
-body main div.cards div.mycard div.imgContainer :hover {
-  opacity: 0.8;
-}
-
-body main div.cards div.mycard div.imgContainer img {
-  width: 100%;
-  height: 202px;
-  border-radius: 10px 10px 0 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -webkit-transition: 0.3s opacity ease-in;
-  transition: 0.3s opacity ease-in;
-  overflow: hidden;
+body main .imgcontainer form .pay_button .payBtn {
+  background-color: #448899;
+  color: white;
+  font-size: 1.25rem;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-}
-
-body main div.cards div.mycard div.imgContainer h3 {
-  font-size: 1rem;
-  font-weight: bolder;
-  margin: 8px 6px 7.5px 6px;
-}
-
-body main div.cards div.mycard div.imgContainer div.pContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-body main div.cards div.mycard div.imgContainer div.pContainer p {
-  font-size: 1rem;
-  margin: 7.5px 6px 12px 6px;
+  margin-bottom: 72px;
+  margin-right: 100px;
 }
 
 body footer {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
@@ -499,92 +489,60 @@ body footer h4 {
   font-size: 1rem;
 }
 
-@media screen and (max-width: 1200px) {
-  body header nav div.logo {
-    margin-left: 5rem;
-  }
-  body header nav ul {
-    margin-right: 5rem;
-  }
-  body section.banner div.left {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 400px;
-            flex: 1 1 400px;
-  }
-  body section.banner div.left form.search_spot {
-    margin-left: 5rem;
-  }
-  body section.banner div.left form.search_spot input {
-    width: 300px;
-  }
-  body section.banner div.right {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 600px;
-            flex: 1 1 600px;
-    position: relative;
-  }
-  body section.banner div.right img {
-    width: 90%;
-    height: auto;
-    position: absolute;
-    bottom: 0;
-  }
-  body main div.cards {
-    width: 90%;
-    margin: 0 auto;
-  }
-  body main div.cards div.mycard {
-    width: calc(50% - 30px);
-  }
-  body main div.cards div.mycard div.imgContainer img {
-    height: calc((50vw - 30px) * 0.6);
-  }
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   body header nav div.logo {
     margin-left: 10px;
   }
-  body header nav ul {
+  body header nav .menu {
     margin-right: 10px;
   }
-  body section.banner div.left {
-    z-index: 2;
-    -webkit-box-flex: 2;
-        -ms-flex: 2 1 150px;
-            flex: 2 1 150px;
+  body main .imgcontainer #no_order {
+    margin: 0 20px 35px 20px;
   }
-  body section.banner div.left form.search_spot {
-    margin-left: 1.5rem;
+  body main .imgcontainer h4 {
+    margin: 35px 20px;
   }
-  body section.banner div.left form.search_spot input {
-    width: 230px;
+  body main .imgcontainer .schedule {
+    margin: 0 20px;
   }
-  body section.banner div.right {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 300px;
-            flex: 1 1 300px;
+  body main .imgcontainer .schedule .schedule_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  body section.banner div.right img {
-    width: 150%;
-    height: auto;
-    z-index: 1;
+  body main .imgcontainer .schedule .schedule_content .trushBtn {
+    top: 650px;
   }
-  body main div.cards div.mycard {
+  body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
     width: 100%;
+    max-width: 1000px;
+    min-height: 450px;
   }
-  body main div.cards div.mycard div.imgContainer img {
-    height: calc((100vw - 30px) * 0.6);
+  body main .imgcontainer .schedule .schedule_content .right {
+    margin-left: 0px;
+  }
+  body main .imgcontainer .schedule .schedule_content .right h4 {
+    margin: 30px 0;
+  }
+  body main .imgcontainer form .pay_form .pay_form_up,
+  body main .imgcontainer form .pay_form .pay_form_down {
+    margin: 0 20px;
+  }
+  body main .imgcontainer form .pay_button h4,
+  body main .imgcontainer form .pay_button .payBtn {
+    margin-right: 20px;
   }
 }
 
-@media screen and (max-width: 450px) {
-  body section.banner div.right img {
-    width: 276px;
-    height: 148px;
-    right: -20vw;
-    -webkit-transform: translateY(5%);
-            transform: translateY(5%);
+@media screen and (max-width: 600px) {
+  body main .imgcontainer .schedule .schedule_content .trushBtn {
+    top: 460px;
+    font-size: small;
+  }
+  body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
+    width: 100%;
+    min-height: 250px;
   }
 }
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=booking.css.map */

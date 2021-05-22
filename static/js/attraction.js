@@ -1,4 +1,7 @@
-let id = location.href.split("/")[4];
+let url = location.href.split("/");
+let id = url[url.length - 1];
+let error_message = document.querySelector(".error_message");
+
 let index = 1;
 async function loadAttractionId() {
   let response = await fetch("/api/attraction/" + id);
@@ -95,6 +98,9 @@ function showImage(n) {
   // dot[index - 1].style.background = "white";
 }
 
+let order_time = "morning";
+let order_price = 2000;
+
 //form changeMoney button
 function changeMoney() {
   let morning = document.querySelector("#morning");
@@ -102,8 +108,59 @@ function changeMoney() {
   let money = document.querySelector(".money");
   morning.addEventListener("click", () => {
     money.textContent = "新台幣2000元";
+    order_time = "morning";
+    order_price = 2000;
   });
   afternoon.addEventListener("click", () => {
     money.textContent = "新台幣2500元";
+    order_time = "afternoon";
+    order_price = 2500;
   });
+}
+
+// 預定行程button
+let reserved_button = document.querySelector(".reserved_button");
+console.log(reserved_button);
+reserved_button.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  async function checkLogin() {
+    let response = await fetch("/api/user");
+    const result = await response.json();
+    if (result.data === null) {
+      document.querySelector(".popup").style.display = "flex";
+      document.querySelector(".close_button").addEventListener("click", () => {
+        document.querySelector(".popup").style.display = "none";
+      });
+    } else {
+      getOrder();
+    }
+  }
+  checkLogin();
+});
+
+async function getOrder() {
+  let order_date = document.querySelector("#order_date").value;
+  let order_info = {
+    attractionId: id,
+    date: order_date,
+    time: order_time,
+    price: order_price,
+  };
+  console.log(order_info);
+  let response = await fetch("/api/booking", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(order_info),
+  });
+  let res = await response.json();
+  console.log(res);
+  if (res["ok"]) {
+    window.location.href = "/booking";
+  }
+  if (res["error"]) {
+    error_message.textContent = "有資料未輸入";
+  }
 }
