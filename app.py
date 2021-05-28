@@ -12,8 +12,8 @@ app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://hello:password@localhost:3306/taipeiprojectdb'
 app.config['SECRET_KEY'] = os.urandom(24)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://hello:password@localhost:3306/taipeiprojectdb'
 
 db = SQLAlchemy(app)
 
@@ -418,4 +418,5 @@ def get_order(orderNumber):
 if __name__=='__main__':
 	db.create_all()
 	app.run(port=3000,debug=True)
+
 
