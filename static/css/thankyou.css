@@ -44,6 +44,7 @@
 }
 
 .order_info .order_content .imgContainer {
+  max-width: 450px;
   max-height: 338px;
 }
 
