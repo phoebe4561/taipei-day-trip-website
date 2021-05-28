@@ -343,6 +343,76 @@ def post_order():
 	except:
 		return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
 
+@app.route("/api/order/<orderNumber>",methods=["GET"])
+def get_order(orderNumber):
+	if 'email' not in session:
+			return jsonify({"error":True, "message":"未登入系統"}),403
+	if orderNumber:
+		recordAPI_url="https://sandbox.tappaysdk.com/tpc/transaction/query"
+		tappayRecord={
+			"partner_key":"partner_aBZwbMw78X7wUNpCYfa9veTp57IU2my09X32HvHOhR8BJCvHLpg4Fohg",
+			"filters":{
+			"bank_transaction_id":orderNumber
+			}
+		}
+		headers = {
+			'content-type': 'application/json',
+			'x-api-key': 'partner_aBZwbMw78X7wUNpCYfa9veTp57IU2my09X32HvHOhR8BJCvHLpg4Fohg'
+		}
+		r = requests.post(recordAPI_url,data=json.dumps(tappayRecord),headers=headers)
+		data = json.loads(r.text)
+		# print(data)
+		if not data["trade_records"]: 
+			return jsonify({"data":None})
+		trip = data["trade_records"][0]["details"].split(";")
+		info=db.session.query(attraction_tb.id,attraction_tb.name,attraction_tb.address,attraction_tb.images).filter_by(id={trip[0]}).first()
+		db.session.commit()
+		# print(info)
+		attr = {
+			"id":info[0],
+			"name":info[1],
+			"address":info[2],
+			"image":info[3].split(";")[0]
+		}
+
+		if data["trade_records"][0]["record_status"]==0:
+			return jsonify({
+				"data":{
+					"number":data["trade_records"][0]["bank_transaction_id"],
+					"trip":{
+						"attraction":attr,
+						"date":trip[2],
+						"time":trip[3]
+					},
+					"price":data["trade_records"][0]["original_amount"],
+					"contact":{
+						"name":data["trade_records"][0]["cardholder"]["name"],
+						"email":data["trade_records"][0]["cardholder"]["email"],
+						"phone":data["trade_records"][0]["cardholder"]["phone_number"],
+					},
+					"status":0
+				}
+			})
+		else:
+			return jsonify({
+			"data":{
+				"number":data["trade_records"][0]["bank_transaction_id"],
+					"trip":{
+						"attraction":attr,
+						"date":trip[2],
+						"time":trip[3]
+					},
+				"price":data["trade_records"][0]["original_amount"],
+				"contact":{
+					"name":data["trade_records"][0]["cardholder"]["name"],
+					"email":data["trade_records"][0]["cardholder"]["email"],
+					"phone":data["trade_records"][0]["cardholder"]["phone_number"],
+				},
+				"status":1
+			}
+		})
+		
+
 if __name__=='__main__':
 	db.create_all()
 	app.run(port=3000,debug=True)

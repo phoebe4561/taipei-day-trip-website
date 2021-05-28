@@ -44,6 +44,7 @@ body header nav {
   margin: 0 auto;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  border-bottom: 0.6px solid #ccc;
 }
 
 body header nav div.logo {

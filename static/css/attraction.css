@@ -226,7 +226,8 @@ main section.content {
   color: #666666;
 }
 
-main section.content .spotDesc {
+main section.content .spotDesc,
+main section.content .spotTrans {
   line-height: 1.8rem;
 }
 
