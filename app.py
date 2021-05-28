@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,jsonify,session
+from flask import Flask,render_template,request,jsonify,session,redirect
 from data import data
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy 
@@ -92,6 +92,8 @@ def attraction(id):
 	return render_template("attraction.html")
 @app.route("/booking")
 def booking():
+	if 'email' not in session:
+		return redirect("/")
 	return render_template("booking.html")
 @app.route("/thankyou")
 def thankyou():
