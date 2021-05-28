@@ -117,7 +117,17 @@ main .imgcontainer form .pay_form .pay_form_down {
   margin: 0 100px;
 }
 
-main .imgcontainer form .pay_form input {
+main .imgcontainer form .pay_form .order_credit_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .imgcontainer form .pay_form input,
+main .imgcontainer form .pay_form .tpfield {
   width: 200px;
   height: 38px;
   margin: 15px 0;
@@ -153,32 +163,14 @@ main .imgcontainer form .pay_button .payBtn {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 72px;
+  margin-bottom: 20px;
   margin-right: 100px;
 }
 
-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: 104px;
-  width: 100%;
-  background-color: #757575;
-}
-
-footer h4 {
-  font-size: 1rem;
+main .imgcontainer form .pay_button .pay_error_msg {
+  margin: 0 100px 20px 0;
+  color: red;
+  font-size: 1.25rem;
 }
 
 @media screen and (max-width: 1000px) {

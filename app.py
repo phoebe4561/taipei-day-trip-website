@@ -2,6 +2,7 @@ from flask import Flask,render_template,request,jsonify,session
 from data import data
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy 
+import requests,json
 import os
 
 app=Flask(__name__)
@@ -244,7 +245,6 @@ def get_booking_data():
 
 			if date and time and price:
 				new_booking=booking_tb(attractionId=attractionId,date=date,time=time,price=price,userId=userId)
-				# print(new_booking)
 				db.session.add(new_booking)
 				db.session.commit()
 				return jsonify({"ok":True})
@@ -284,6 +284,64 @@ def get_booking_data():
 		db.session.commit()
 		return jsonify({"ok":True})
 	return jsonify({"error":True})
+
+
+@app.route("/api/orders",methods=["POST"])
+def post_order():
+	try:
+		if 'email' not in session:
+			return jsonify({"error":True, "message":"未登入系統"}),403
+		if request.get_json()["order"]["contact"]["phone"]=="":
+			return jsonify({"error":True, "message":"請填入您的聯絡資訊"}),400
+
+		primeAPI_url = "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
+		tappayRequest = {
+			"partner_key":"partner_aBZwbMw78X7wUNpCYfa9veTp57IU2my09X32HvHOhR8BJCvHLpg4Fohg",
+			"prime": request.get_json()["prime"],
+			"amount": request.get_json()["order"]["price"],
+			"merchant_id": "phoebepao_TAISHIN",
+			"details":f'''
+			{request.get_json()["order"]["trip"]["attraction"]["id"]};
+			{request.get_json()["order"]["trip"]["attraction"]["name"]};
+			{request.get_json()["order"]["trip"]["date"]};
+			{request.get_json()["order"]["trip"]["time"]}
+			''',
+			"cardholder": {
+				"phone_number": request.get_json()["order"]["contact"]["phone"],
+				"name": request.get_json()["order"]["contact"]["name"],
+				"email": request.get_json()["order"]["contact"]["email"]
+				}
+		}
+		headers = {
+			'content-type': 'application/json',
+			'x-api-key': 'partner_aBZwbMw78X7wUNpCYfa9veTp57IU2my09X32HvHOhR8BJCvHLpg4Fohg'
+		}
+		r = requests.post(primeAPI_url,data=json.dumps(tappayRequest),headers=headers,timeout = 30)
+		data = json.loads(r.text)
+
+		
+		if data["status"]==0:
+			return jsonify({
+				"data":{
+					"number":data["bank_transaction_id"],
+					"payment":{
+						"status":"0",
+						"message":"付款成功",
+					}
+				}
+			})
+		else:
+			return jsonify({
+				"data":{
+					"number":data["bank_transaction_id"],
+					"payment":{
+						"status":"交易失敗",
+						"message":"付款失敗",
+					}
+				}
+			})
+	except:
+		return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
 
 if __name__=='__main__':
 	db.create_all()

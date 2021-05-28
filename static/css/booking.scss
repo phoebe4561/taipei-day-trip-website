@@ -74,7 +74,12 @@ main {
         .pay_form_down {
           margin: 0 100px;
         }
-        input {
+        .order_credit_card {
+          display: flex;
+          align-items: center;
+        }
+        input,
+        .tpfield {
           width: 200px;
           height: 38px;
           margin: 15px 0;
@@ -100,25 +105,16 @@ main {
           padding: 10px 20px;
           border-radius: 5px;
           cursor: pointer;
-          margin-bottom: 72px;
+          margin-bottom: 20px;
           margin-right: 100px;
+        }
+        .pay_error_msg {
+          margin: 0 100px 20px 0;
+          color: red;
+          font-size: 1.25rem;
         }
       }
     }
-  }
-}
-
-footer {
-  display: flex;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  min-height: 104px;
-  width: 100%;
-  background-color: #757575;
-  h4 {
-    font-size: 1rem;
   }
 }
 @media screen and (max-width: 1000px) {

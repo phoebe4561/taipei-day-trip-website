@@ -3,6 +3,7 @@
 {% block title %}行程預定:台北一日遊{% endblock %}
 
 {% block head %}
+    <script src="https://js.tappaysdk.com/tpdirect/v5.7.0"></script>
     <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename = 'css/booking.css')}}">
 {% endblock %}
 
@@ -53,15 +54,19 @@
         
                     <div class="pay_form_down">
                         <h4>信用卡付款資訊</h4>
-                        <label for="pay_card">卡片號碼:</label>
-                        <input type="password" id="pay_card" name="pay_card" placeholder="**** **** **** ****" required>
-                        <br>
-                        <label for="pay_expired_date">過期時間:</label>
-                        <input type="email" id="pay_expired_date" name="pay_expired_date" placeholder="MM/YY" required>
-                        <br>
-                        <label for="pay_password">驗證密碼:</label>
-                        <input type="text" id="pay_password" name="pay_password" placeholder="CVV" required>
-                    </div>
+                        <div class="order_credit_card">
+                            <label for="card-number">卡片號碼：</label>
+                            <div class="tpfield" id="card-number"></div>
+                            </div>
+                            <div class="order_credit_card">
+                            <label for="card-expiration-date">過期時間：</label>
+                            <div class="tpfield" id="card-expiration-date"></div>
+                            </div>
+                            <div class="order_credit_card">
+                            <label for="card-ccv">驗證密碼：</label>
+                            <div class="tpfield" id="card-ccv"></div>
+                            </div>                   
+                        </div>
                     
             <hr>
                 </div>
@@ -69,6 +74,7 @@
                 <div class="pay_button">             
                     <h4>總價：<span id="spotCost">新台幣 2000 元</span></h4>
                     <button class="payBtn">確認訂購並付款</button>
+                    <div class="pay_error_msg"></div>
                 </div>
             </form>
         </section>

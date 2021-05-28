@@ -26,6 +26,7 @@ async function loadOrderInfo() {
   } else {
     // console.log(data);
     getOrderData(data);
+    clickPayBtn();
   }
 }
 loadOrderInfo();
@@ -70,9 +71,122 @@ function getOrderData(data) {
   } else {
     spotTime.textContent = "下午2點至下午5點";
   }
+  attraction_order = {
+    price: data.price,
+    trip: {
+      attraction: data.attraction,
+      date: data.date,
+      time: data.time,
+    },
+  };
 }
 
 function getUsername(nameData) {
   const username = document.querySelector(".username");
   username.textContent = nameData.name;
+  pay_name.value = nameData.name;
+  pay_email.value = nameData.email;
+}
+
+//tappay前端串接
+TPDirect.setupSDK(
+  20395,
+  "app_RgcnRhOpeyThaxUl9Zwl9BiDoFaqpevTT7bogC0y4YaCdo0AWm8UBbpVbUsB",
+  "sandbox"
+);
+
+TPDirect.card.setup({
+  fields: {
+    number: {
+      element: "#card-number",
+      placeholder: "**** **** **** ****",
+    },
+    expirationDate: {
+      element: document.getElementById("card-expiration-date"),
+      placeholder: "MM / YY",
+    },
+    ccv: {
+      element: "#card-ccv",
+      placeholder: "後三碼",
+    },
+  },
+  styles: {
+    input: {
+      color: "gray",
+    },
+    "input.card-number": {
+      // color: "black",
+    },
+    "input.ccv": {
+      // color: "black",
+    },
+    "input.expiration-date": {
+      // color: "black",
+    },
+    ":focus": {
+      // 'color': 'black'
+    },
+    ".valid": {
+      color: "green",
+    },
+    ".invalid": {
+      color: "red",
+    },
+    "@media screen and (max-width: 400px)": {
+      input: {
+        color: "black",
+      },
+    },
+  },
+});
+
+function clickPayBtn() {
+  const payBtn = document.querySelector(".payBtn");
+  payBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // console.log(attraction_order);
+    //get Prime
+    TPDirect.card.getPrime(function (result) {
+      if (result.status !== 0) {
+        console.log("getPrime error");
+        document.querySelector(".pay_error_msg").textContent =
+          "請填入正確信用卡付款資訊";
+        return;
+      }
+
+      let prime = result.card.prime;
+      let order_data = {
+        prime: prime,
+        order: {
+          price: attraction_order.price,
+          trip: attraction_order.trip,
+          contact: {
+            name: document.querySelector("#pay_name").value,
+            email: document.querySelector("#pay_email").value,
+            phone: document.querySelector("#pay_phone").value,
+          },
+        },
+      };
+      fetch("/api/orders", {
+        body: JSON.stringify(order_data),
+        headers: {
+          "content-type": "application/json",
+        },
+        method: "POST",
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((res) => {
+          // console.log(res.data.number);
+          if (res["error"]) {
+            document.querySelector(".pay_error_msg").textContent =
+              res["message"];
+          } else {
+            window.location.href = `/thankyou?number=${res.data.number}`;
+          }
+        });
+    });
+  });
 }
