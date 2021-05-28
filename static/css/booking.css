@@ -1,312 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-}
-
-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  min-height: 100vh;
-}
-
-body header {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 5;
-  top: 0;
-  width: 100%;
-  background-color: white;
-  -webkit-box-shadow: 2px 2px 5px 1px gray;
-          box-shadow: 2px 2px 5px 1px gray;
-}
-
-body header nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-body header nav div.logo {
-  margin: 0.5rem 0;
-  cursor: pointer;
-}
-
-body header nav div.logo a {
-  color: #448899;
-  text-decoration: none;
-  font-size: 2rem;
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-}
-
-body header nav div.logo a:hover {
-  opacity: 0.8;
-}
-
-body header nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0.5rem 0;
-}
-
-body header nav ul li {
-  list-style-type: none;
-  cursor: pointer;
-}
-
-body header nav ul li a {
-  text-decoration: none;
-  color: #666666;
-  padding: 0.5rem;
-  font-size: 1rem;
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-}
-
-body header nav ul li a:hover {
-  opacity: 0.8;
-}
-
-body section.popup {
-  background: rgba(0, 0, 0, 0.25);
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 10;
-}
-
-body section.popup div.popup_container {
-  width: 340px;
-  height: 285px;
-  background-color: white;
-  position: relative;
-  top: 80px;
-  border-radius: 6px;
-}
-
-body section.popup div.popup_container div.blank {
-  width: 340px;
-  height: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#337788), to(#66aabb));
-  background: linear-gradient(0deg, #337788, #66aabb);
-  border-radius: 6px 6px 0 0;
-}
-
-body section.popup div.popup_container div.close_button {
-  position: absolute;
-  top: 0.8rem;
-  left: 300px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-body section.popup div.popup_container div.close_button:hover {
-  font-size: 2.5rem;
-}
-
-body section.popup div.popup_container form h3 {
-  color: #666666;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 15px;
-}
-
-body section.popup div.popup_container form input {
-  width: 310px;
-  height: 47px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  color: #666666;
-  font-size: 1rem;
-  padding: 0 15px;
-  display: block;
-  margin: 10px auto;
-}
-
-body section.popup div.popup_container form button {
-  width: 310px;
-  height: 47px;
-  background-color: #448899;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1.25rem;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-  -webkit-transition: 0.3s all ease-in;
-  transition: 0.3s all ease-in;
-}
-
-body section.popup div.popup_container form button:hover {
-  opacity: 0.8;
-}
-
-body section.popup div.popup_container form #signin_errorAlert {
-  text-align: center;
-  color: red;
-}
-
-body section.popup div.popup_container form div.a_tag {
-  text-align: center;
-}
-
-body section.popup div.popup_container form div.a_tag a {
-  color: #666666;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-body section.popup div.popup_container form div.a_tag a span.border {
-  font-weight: bolder;
-}
-
-body section.popup div.popup_container form div.a_tag a span.border:hover {
-  color: red;
-}
-
-body section.signup_popup {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 11;
-}
-
-body section.signup_popup div.signup_popup_container {
-  width: 340px;
-  height: 345px;
-  background-color: white;
-  position: relative;
-  top: 80px;
-  border-radius: 6px;
-}
-
-body section.signup_popup div.signup_popup_container div.signup_blank {
-  width: 340px;
-  height: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#337788), to(#66aabb));
-  background: linear-gradient(0deg, #337788, #66aabb);
-  border-radius: 6px 6px 0 0;
-}
-
-body section.signup_popup div.signup_popup_container div.signup_close_button {
-  position: absolute;
-  top: 0.8rem;
-  left: 300px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-body section.signup_popup div.signup_popup_container div.signup_close_button:hover {
-  font-size: 2.5rem;
-}
-
-body section.signup_popup div.signup_popup_container form h3 {
-  color: #666666;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 15px;
-}
-
-body section.signup_popup div.signup_popup_container form input {
-  width: 310px;
-  height: 47px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  color: #666666;
-  font-size: 1rem;
-  padding: 0 15px;
-  display: block;
-  margin: 10px auto;
-}
-
-body section.signup_popup div.signup_popup_container form button {
-  width: 310px;
-  height: 47px;
-  background-color: #448899;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1.25rem;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-  -webkit-transition: 0.3s all ease-in;
-  transition: 0.3s all ease-in;
-}
-
-body section.signup_popup div.signup_popup_container form button:hover {
-  opacity: 0.8;
-}
-
-body section.signup_popup div.signup_popup_container form #signup_successAlert {
-  text-align: center;
-  color: green;
-}
-
-body section.signup_popup div.signup_popup_container form #signup_errorAlert {
-  text-align: center;
-  color: red;
-}
-
-body section.signup_popup div.signup_popup_container form div.a_tag {
-  text-align: center;
-}
-
-body section.signup_popup div.signup_popup_container form div.a_tag a {
-  color: #666666;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-body section.signup_popup div.signup_popup_container form div.a_tag a span.border {
-  font-weight: bolder;
-}
-
-body section.signup_popup div.signup_popup_container form div.a_tag a span.border:hover {
-  color: red;
-}
-
-body main {
+main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -322,80 +14,80 @@ body main {
           flex-direction: column;
 }
 
-body main .imgcontainer {
+main .imgcontainer {
   overflow: hidden;
   max-width: 1200px;
   width: 100%;
 }
 
-body main .imgcontainer h4 {
+main .imgcontainer h4 {
   font-size: 1.25rem;
   margin: 30px 100px;
   font-weight: bolder;
 }
 
-body main .imgcontainer #no_order {
+main .imgcontainer #no_order {
   margin: 15px 100px 45px 100px;
   font-size: 1.25rem;
 }
 
-body main .imgcontainer .schedule {
+main .imgcontainer .schedule {
   margin: 0 100px;
 }
 
-body main .imgcontainer .schedule .bolder {
+main .imgcontainer .schedule .bolder {
   font-weight: bolder;
 }
 
-body main .imgcontainer .schedule span.normal {
+main .imgcontainer .schedule span.normal {
   font-weight: normal;
   padding-left: 5px;
 }
 
-body main .imgcontainer .schedule .schedule_content {
+main .imgcontainer .schedule .schedule_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
 }
 
-body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
+main .imgcontainer .schedule .schedule_content .left_imgcontainer {
   max-width: 266px;
   height: 200px;
 }
 
-body main .imgcontainer .schedule .schedule_content .left_imgcontainer img {
+main .imgcontainer .schedule .schedule_content .left_imgcontainer img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-body main .imgcontainer .schedule .schedule_content .right {
+main .imgcontainer .schedule .schedule_content .right {
   margin-left: 22px;
 }
 
-body main .imgcontainer .schedule .schedule_content .right h4 {
+main .imgcontainer .schedule .schedule_content .right h4 {
   color: #448899;
   margin: 0 0 30px 0;
 }
 
-body main .imgcontainer .schedule .schedule_content .right p {
+main .imgcontainer .schedule .schedule_content .right p {
   line-height: 30px;
 }
 
-body main .imgcontainer .schedule .schedule_content .trushBtn {
+main .imgcontainer .schedule .schedule_content .trushBtn {
   position: absolute;
   right: 0;
   cursor: pointer;
 }
 
-body main .imgcontainer hr {
+main .imgcontainer hr {
   width: 1200px;
   margin: 45px auto;
 }
 
-body main .imgcontainer form {
+main .imgcontainer form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -410,22 +102,22 @@ body main .imgcontainer form {
           justify-content: center;
 }
 
-body main .imgcontainer form h4 {
+main .imgcontainer form h4 {
   font-size: 1.25rem;
   font-weight: bolder;
   margin: 0 0 24px 0;
 }
 
-body main .imgcontainer form .pay_form {
+main .imgcontainer form .pay_form {
   width: 100%;
 }
 
-body main .imgcontainer form .pay_form .pay_form_up,
-body main .imgcontainer form .pay_form .pay_form_down {
+main .imgcontainer form .pay_form .pay_form_up,
+main .imgcontainer form .pay_form .pay_form_down {
   margin: 0 100px;
 }
 
-body main .imgcontainer form .pay_form input {
+main .imgcontainer form .pay_form input {
   width: 200px;
   height: 38px;
   margin: 15px 0;
@@ -435,7 +127,7 @@ body main .imgcontainer form .pay_form input {
   font-size: 1rem;
 }
 
-body main .imgcontainer form .pay_button {
+main .imgcontainer form .pay_button {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -449,11 +141,11 @@ body main .imgcontainer form .pay_button {
           align-items: flex-end;
 }
 
-body main .imgcontainer form .pay_button h4 {
+main .imgcontainer form .pay_button h4 {
   margin-right: 100px;
 }
 
-body main .imgcontainer form .pay_button .payBtn {
+main .imgcontainer form .pay_button .payBtn {
   background-color: #448899;
   color: white;
   font-size: 1.25rem;
@@ -465,7 +157,7 @@ body main .imgcontainer form .pay_button .payBtn {
   margin-right: 100px;
 }
 
-body footer {
+footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -485,62 +177,56 @@ body footer {
   background-color: #757575;
 }
 
-body footer h4 {
+footer h4 {
   font-size: 1rem;
 }
 
 @media screen and (max-width: 1000px) {
-  body header nav div.logo {
-    margin-left: 10px;
-  }
-  body header nav .menu {
-    margin-right: 10px;
-  }
-  body main .imgcontainer #no_order {
+  main .imgcontainer #no_order {
     margin: 0 20px 35px 20px;
   }
-  body main .imgcontainer h4 {
+  main .imgcontainer h4 {
     margin: 35px 20px;
   }
-  body main .imgcontainer .schedule {
+  main .imgcontainer .schedule {
     margin: 0 20px;
   }
-  body main .imgcontainer .schedule .schedule_content {
+  main .imgcontainer .schedule .schedule_content {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  body main .imgcontainer .schedule .schedule_content .trushBtn {
+  main .imgcontainer .schedule .schedule_content .trushBtn {
     top: 650px;
   }
-  body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
+  main .imgcontainer .schedule .schedule_content .left_imgcontainer {
     width: 100%;
     max-width: 1000px;
     min-height: 450px;
   }
-  body main .imgcontainer .schedule .schedule_content .right {
+  main .imgcontainer .schedule .schedule_content .right {
     margin-left: 0px;
   }
-  body main .imgcontainer .schedule .schedule_content .right h4 {
+  main .imgcontainer .schedule .schedule_content .right h4 {
     margin: 30px 0;
   }
-  body main .imgcontainer form .pay_form .pay_form_up,
-  body main .imgcontainer form .pay_form .pay_form_down {
+  main .imgcontainer form .pay_form .pay_form_up,
+  main .imgcontainer form .pay_form .pay_form_down {
     margin: 0 20px;
   }
-  body main .imgcontainer form .pay_button h4,
-  body main .imgcontainer form .pay_button .payBtn {
+  main .imgcontainer form .pay_button h4,
+  main .imgcontainer form .pay_button .payBtn {
     margin-right: 20px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  body main .imgcontainer .schedule .schedule_content .trushBtn {
+  main .imgcontainer .schedule .schedule_content .trushBtn {
     top: 460px;
     font-size: small;
   }
-  body main .imgcontainer .schedule .schedule_content .left_imgcontainer {
+  main .imgcontainer .schedule .schedule_content .left_imgcontainer {
     width: 100%;
     min-height: 250px;
   }

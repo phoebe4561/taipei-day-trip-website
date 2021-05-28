@@ -1,311 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-}
-
-html {
-  min-height: 100%;
-  position: relative;
-}
-
-html body {
-  margin-bottom: 104px;
-}
-
-html body header {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 5;
-  top: 0;
-  width: 100%;
-  height: 58.67;
-  background-color: white;
-  -webkit-box-shadow: 2px 2px 5px 1px gray;
-          box-shadow: 2px 2px 5px 1px gray;
-}
-
-html body header nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-html body header nav div.logo {
-  margin: 0.5rem 0;
-  cursor: pointer;
-}
-
-html body header nav div.logo a {
-  color: #448899;
-  text-decoration: none;
-  font-size: 2rem;
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-}
-
-html body header nav div.logo a:hover {
-  opacity: 0.8;
-}
-
-html body header nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0.5rem 0;
-}
-
-html body header nav ul li {
-  list-style-type: none;
-  cursor: pointer;
-}
-
-html body header nav ul li a {
-  text-decoration: none;
-  color: #666666;
-  padding: 0.5rem;
-  font-size: 1rem;
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-}
-
-html body header nav ul li a:hover {
-  opacity: 0.8;
-}
-
-html body section.popup {
-  background: rgba(0, 0, 0, 0.25);
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 10;
-}
-
-html body section.popup div.popup_container {
-  width: 340px;
-  height: 285px;
-  background-color: white;
-  position: relative;
-  top: 80px;
-  border-radius: 6px;
-}
-
-html body section.popup div.popup_container div.blank {
-  width: 340px;
-  height: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#337788), to(#66aabb));
-  background: linear-gradient(0deg, #337788, #66aabb);
-  border-radius: 6px 6px 0 0;
-}
-
-html body section.popup div.popup_container div.close_button {
-  position: absolute;
-  top: 0.8rem;
-  left: 300px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-html body section.popup div.popup_container div.close_button:hover {
-  font-size: 2.5rem;
-}
-
-html body section.popup div.popup_container form h3 {
-  color: #666666;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 15px;
-}
-
-html body section.popup div.popup_container form input {
-  width: 310px;
-  height: 47px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  color: #666666;
-  font-size: 1rem;
-  padding: 0 15px;
-  display: block;
-  margin: 10px auto;
-}
-
-html body section.popup div.popup_container form button {
-  width: 310px;
-  height: 47px;
-  background-color: #448899;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1.25rem;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-  -webkit-transition: 0.3s all ease-in;
-  transition: 0.3s all ease-in;
-}
-
-html body section.popup div.popup_container form button:hover {
-  opacity: 0.8;
-}
-
-html body section.popup div.popup_container form #signin_errorAlert {
-  text-align: center;
-  color: red;
-}
-
-html body section.popup div.popup_container form div.a_tag {
-  text-align: center;
-}
-
-html body section.popup div.popup_container form div.a_tag a {
-  color: #666666;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-html body section.popup div.popup_container form div.a_tag a span.border {
-  font-weight: bolder;
-}
-
-html body section.popup div.popup_container form div.a_tag a span.border:hover {
-  color: red;
-}
-
-html body section.signup_popup {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 11;
-}
-
-html body section.signup_popup div.signup_popup_container {
-  width: 340px;
-  height: 345px;
-  background-color: white;
-  position: relative;
-  top: 80px;
-  border-radius: 6px;
-}
-
-html body section.signup_popup div.signup_popup_container div.signup_blank {
-  width: 340px;
-  height: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#337788), to(#66aabb));
-  background: linear-gradient(0deg, #337788, #66aabb);
-  border-radius: 6px 6px 0 0;
-}
-
-html body section.signup_popup div.signup_popup_container div.signup_close_button {
-  position: absolute;
-  top: 0.8rem;
-  left: 300px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-html body section.signup_popup div.signup_popup_container div.signup_close_button:hover {
-  font-size: 2.5rem;
-}
-
-html body section.signup_popup div.signup_popup_container form h3 {
-  color: #666666;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 15px;
-}
-
-html body section.signup_popup div.signup_popup_container form input {
-  width: 310px;
-  height: 47px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  color: #666666;
-  font-size: 1rem;
-  padding: 0 15px;
-  display: block;
-  margin: 10px auto;
-}
-
-html body section.signup_popup div.signup_popup_container form button {
-  width: 310px;
-  height: 47px;
-  background-color: #448899;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1.25rem;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-  -webkit-transition: 0.3s all ease-in;
-  transition: 0.3s all ease-in;
-}
-
-html body section.signup_popup div.signup_popup_container form button:hover {
-  opacity: 0.8;
-}
-
-html body section.signup_popup div.signup_popup_container form #signup_successAlert {
-  text-align: center;
-  color: green;
-}
-
-html body section.signup_popup div.signup_popup_container form #signup_errorAlert {
-  text-align: center;
-  color: red;
-}
-
-html body section.signup_popup div.signup_popup_container form div.a_tag {
-  text-align: center;
-}
-
-html body section.signup_popup div.signup_popup_container form div.a_tag a {
-  color: #666666;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-html body section.signup_popup div.signup_popup_container form div.a_tag a span.border {
-  font-weight: bolder;
-}
-
-html body section.signup_popup div.signup_popup_container form div.a_tag a span.border:hover {
-  color: red;
-}
-
-html body main {
+main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -317,7 +10,7 @@ html body main {
   margin-top: 37px;
 }
 
-html body main div.top {
+main div.top {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -331,7 +24,7 @@ html body main div.top {
   margin: 0 auto;
 }
 
-html body main div.top section.left {
+main div.top section.left {
   width: calc(50% - 30px);
   position: relative;
   overflow: hidden;
@@ -339,12 +32,12 @@ html body main div.top section.left {
   height: 406px;
 }
 
-html body main div.top section.left div.imgContainer {
+main div.top section.left div.imgContainer {
   width: 100%;
   height: 100%;
 }
 
-html body main div.top section.left div.imgContainer img {
+main div.top section.left div.imgContainer img {
   border-radius: 10px;
   width: 100%;
   height: 100%;
@@ -352,7 +45,7 @@ html body main div.top section.left div.imgContainer img {
      object-fit: cover;
 }
 
-html body main div.top section.left button.leftBtn {
+main div.top section.left button.leftBtn {
   font-size: 2.5rem;
   position: absolute;
   cursor: pointer;
@@ -362,7 +55,7 @@ html body main div.top section.left button.leftBtn {
   background: none;
 }
 
-html body main div.top section.left button.rightBtn {
+main div.top section.left button.rightBtn {
   font-size: 2.5rem;
   position: absolute;
   cursor: pointer;
@@ -372,7 +65,7 @@ html body main div.top section.left button.rightBtn {
   background: none;
 }
 
-html body main div.top section.left .dots {
+main div.top section.left .dots {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -383,7 +76,7 @@ html body main div.top section.left .dots {
           transform: translateX(-50%);
 }
 
-html body main div.top section.left .dots .dot {
+main div.top section.left .dots .dot {
   cursor: pointer;
   list-style: none;
   width: 1rem;
@@ -394,74 +87,74 @@ html body main div.top section.left .dots .dot {
   border-radius: 50%;
 }
 
-html body main div.top section.left .dots .dot:hover {
+main div.top section.left .dots .dot:hover {
   background: white;
 }
 
-html body main div.top section.left .dots .active {
+main div.top section.left .dots .active {
   background: rgba(255, 255, 255, 0.8);
 }
 
-html body main div.top section.right {
+main div.top section.right {
   width: 50%;
 }
 
-html body main div.top section.right div.spotTitle,
-html body main div.top section.right div.spotMrt {
+main div.top section.right div.spotTitle,
+main div.top section.right div.spotMrt {
   color: #666666;
   font-size: 1.25rem;
   margin: 15px 0 25px 0;
 }
 
-html body main div.top section.right .spotTitle,
-html body main div.top section.right .bolder {
+main div.top section.right .spotTitle,
+main div.top section.right .bolder {
   font-weight: bolder;
 }
 
-html body main div.top section.right form {
+main div.top section.right form {
   background-color: #e8e8e8;
   max-width: 600px;
   height: auto;
   border-radius: 5px;
 }
 
-html body main div.top section.right form div.form_content {
+main div.top section.right form div.form_content {
   line-height: 2.5rem;
   color: #666666;
   margin: 16px 20px;
   position: relative;
 }
 
-html body main div.top section.right form div.form_content span {
+main div.top section.right form div.form_content span {
   font-weight: bolder;
   padding-right: 8px;
 }
 
-html body main div.top section.right form div.form_content .order_date {
+main div.top section.right form div.form_content .order_date {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html body main div.top section.right form div.form_content .order_date input {
+main div.top section.right form div.form_content .order_date input {
   width: 193px;
   height: 35px;
   color: black;
   padding: 5px 10px;
 }
 
-html body main div.top section.right form div.form_content .order_time {
+main div.top section.right form div.form_content .order_time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html body main div.top section.right form div.form_content .order_time div.morning label,
-html body main div.top section.right form div.form_content .order_time div.afternoon label {
+main div.top section.right form div.form_content .order_time div.morning label,
+main div.top section.right form div.form_content .order_time div.afternoon label {
   padding: 0 8px;
 }
 
-html body main div.top section.right form div.form_content .order_time input[type="radio"]:after {
+main div.top section.right form div.form_content .order_time input[type="radio"]:after {
   width: 18px;
   height: 18px;
   border-radius: 15px;
@@ -475,7 +168,7 @@ html body main div.top section.right form div.form_content .order_time input[typ
   cursor: pointer;
 }
 
-html body main div.top section.right form div.form_content .order_time input[type="radio"]:checked:after {
+main div.top section.right form div.form_content .order_time input[type="radio"]:checked:after {
   width: 18px;
   height: 18px;
   border-radius: 15px;
@@ -489,13 +182,13 @@ html body main div.top section.right form div.form_content .order_time input[typ
   cursor: pointer;
 }
 
-html body main div.top section.right form div.form_content .order_cost {
+main div.top section.right form div.form_content .order_cost {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html body main div.top section.right form div.form_content button.reserved_button {
+main div.top section.right form div.form_content button.reserved_button {
   color: white;
   background-color: #448899;
   border: none;
@@ -508,11 +201,11 @@ html body main div.top section.right form div.form_content button.reserved_butto
   transition: 0.3s all ease-in;
 }
 
-html body main div.top section.right form div.form_content button.reserved_button:hover {
+main div.top section.right form div.form_content button.reserved_button:hover {
   opacity: 0.8;
 }
 
-html body main div.top section.right form div.form_content p.error_message {
+main div.top section.right form div.form_content p.error_message {
   color: red;
   font-size: 1.25rem;
   position: absolute;
@@ -520,12 +213,12 @@ html body main div.top section.right form div.form_content p.error_message {
           transform: translate(140%, -150%);
 }
 
-html body main hr {
+main hr {
   width: 1200px;
   margin: 2rem auto;
 }
 
-html body main section.content {
+main section.content {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -533,36 +226,13 @@ html body main section.content {
   color: #666666;
 }
 
-html body main section.content .spotDesc {
+main section.content .spotDesc {
   line-height: 1.8rem;
 }
 
-html body main section.content p {
+main section.content p {
   margin: 20px 0 5px 0;
   font-weight: bolder;
-}
-
-html body footer {
-  bottom: 0;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: 104px;
-  width: 100%;
-  background-color: #757575;
-}
-
-html body footer h4 {
-  font-size: 1rem;
 }
 
 @-webkit-keyframes fade {
@@ -584,22 +254,16 @@ html body footer h4 {
 }
 
 @media screen and (max-width: 1200px) {
-  html body header nav .logo {
-    padding-left: 2rem;
-  }
-  html body header nav .menu {
-    padding-right: 2rem;
-  }
-  html body main div.top {
+  main div.top {
     width: 90%;
   }
-  html body main section.content {
+  main section.content {
     width: 90%;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  html body main div.top {
+  main div.top {
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -612,42 +276,36 @@ html body footer h4 {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  html body main div.top section.left {
+  main div.top section.left {
     width: 90%;
   }
-  html body main div.top section.left div.imgContainer img {
+  main div.top section.left div.imgContainer img {
     height: 100%;
   }
-  html body main div.top section.right {
+  main div.top section.right {
     width: 90%;
     margin-top: 1rem;
   }
-  html body main div.top section.right .spotTitle,
-  html body main div.top section.right .spotMrt {
+  main div.top section.right .spotTitle,
+  main div.top section.right .spotMrt {
     text-align: center;
   }
-  html body main div.top section.right form {
+  main div.top section.right form {
     max-width: 900px;
   }
 }
 
 @media screen and (max-width: 540px) {
-  html body header nav .logo {
-    padding-left: 1rem;
-  }
-  html body header nav .menu {
-    padding-right: 1rem;
-  }
-  html body main div.top section.left {
+  main div.top section.left {
     width: 100%;
   }
-  html body main div.top section.left div.imgContainer img {
+  main div.top section.left div.imgContainer img {
     width: 100vw;
     -o-object-fit: cover;
        object-fit: cover;
     max-height: 406px;
   }
-  html body main div.top section.right {
+  main div.top section.right {
     width: 90%;
   }
 }

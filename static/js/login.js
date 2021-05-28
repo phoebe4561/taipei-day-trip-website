@@ -1,3 +1,13 @@
+let header = document.querySelector("header");
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset != 0) {
+    header.style.backgroundColor = "white";
+    header.style.boxShadow = "3px 3px 5px 1px rgb(128, 128, 128)";
+  } else {
+    header.style = "";
+  }
+});
+
 //signin popup右上角登入/註冊navbar
 function signin_popup() {
   let signin_button = document.querySelector("a.signin_button");

@@ -1,315 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-}
-
-body {
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-body header {
-  position: fixed;
-  z-index: 5;
-  top: 0;
-  width: 100%;
-}
-
-body header nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-body header nav div.logo {
-  margin: 0.5rem 0;
-  cursor: pointer;
-}
-
-body header nav div.logo a {
-  color: #448899;
-  text-decoration: none;
-  font-size: 2rem;
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-}
-
-body header nav div.logo a:hover {
-  opacity: 0.8;
-}
-
-body header nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0.5rem 0;
-}
-
-body header nav ul li {
-  list-style-type: none;
-  cursor: pointer;
-}
-
-body header nav ul li a {
-  text-decoration: none;
-  color: #666666;
-  padding: 0.5rem;
-  font-size: 1rem;
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease;
-}
-
-body header nav ul li a:hover {
-  opacity: 0.8;
-}
-
-body section.popup {
-  background: rgba(0, 0, 0, 0.25);
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 10;
-}
-
-body section.popup div.popup_container {
-  width: 340px;
-  height: 285px;
-  background-color: white;
-  position: relative;
-  top: 80px;
-  border-radius: 6px;
-}
-
-body section.popup div.popup_container div.blank {
-  width: 340px;
-  height: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#337788), to(#66aabb));
-  background: linear-gradient(0deg, #337788, #66aabb);
-  border-radius: 6px 6px 0 0;
-}
-
-body section.popup div.popup_container div.close_button {
-  position: absolute;
-  top: 0.8rem;
-  left: 300px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-body section.popup div.popup_container div.close_button:hover {
-  font-size: 2.5rem;
-}
-
-body section.popup div.popup_container form h3 {
-  color: #666666;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 15px;
-}
-
-body section.popup div.popup_container form input {
-  width: 310px;
-  height: 47px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  color: #666666;
-  font-size: 1rem;
-  padding: 0 15px;
-  display: block;
-  margin: 10px auto;
-}
-
-body section.popup div.popup_container form button {
-  width: 310px;
-  height: 47px;
-  background-color: #448899;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1.25rem;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-  -webkit-transition: 0.3s all ease-in;
-  transition: 0.3s all ease-in;
-}
-
-body section.popup div.popup_container form button:hover {
-  opacity: 0.8;
-}
-
-body section.popup div.popup_container form #signin_errorAlert {
-  text-align: center;
-  color: red;
-}
-
-body section.popup div.popup_container form div.a_tag {
-  text-align: center;
-}
-
-body section.popup div.popup_container form div.a_tag a {
-  color: #666666;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-body section.popup div.popup_container form div.a_tag a span.border {
-  font-weight: bolder;
-}
-
-body section.popup div.popup_container form div.a_tag a span.border:hover {
-  color: red;
-}
-
-body section.signup_popup {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 11;
-}
-
-body section.signup_popup div.signup_popup_container {
-  width: 340px;
-  height: 345px;
-  background-color: white;
-  position: relative;
-  top: 80px;
-  border-radius: 6px;
-}
-
-body section.signup_popup div.signup_popup_container div.signup_blank {
-  width: 340px;
-  height: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#337788), to(#66aabb));
-  background: linear-gradient(0deg, #337788, #66aabb);
-  border-radius: 6px 6px 0 0;
-}
-
-body section.signup_popup div.signup_popup_container div.signup_close_button {
-  position: absolute;
-  top: 0.8rem;
-  left: 300px;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-body section.signup_popup div.signup_popup_container div.signup_close_button:hover {
-  font-size: 2.5rem;
-}
-
-body section.signup_popup div.signup_popup_container form h3 {
-  color: #666666;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 15px;
-}
-
-body section.signup_popup div.signup_popup_container form input {
-  width: 310px;
-  height: 47px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  color: #666666;
-  font-size: 1rem;
-  padding: 0 15px;
-  display: block;
-  margin: 10px auto;
-}
-
-body section.signup_popup div.signup_popup_container form button {
-  width: 310px;
-  height: 47px;
-  background-color: #448899;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1.25rem;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-  -webkit-transition: 0.3s all ease-in;
-  transition: 0.3s all ease-in;
-}
-
-body section.signup_popup div.signup_popup_container form button:hover {
-  opacity: 0.8;
-}
-
-body section.signup_popup div.signup_popup_container form #signup_successAlert {
-  text-align: center;
-  color: green;
-}
-
-body section.signup_popup div.signup_popup_container form #signup_errorAlert {
-  text-align: center;
-  color: red;
-}
-
-body section.signup_popup div.signup_popup_container form div.a_tag {
-  text-align: center;
-}
-
-body section.signup_popup div.signup_popup_container form div.a_tag a {
-  color: #666666;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-body section.signup_popup div.signup_popup_container form div.a_tag a span.border {
-  font-weight: bolder;
-}
-
-body section.signup_popup div.signup_popup_container form div.a_tag a span.border:hover {
-  color: red;
-}
-
-body div.blank {
-  width: 100%;
-  height: 58.67px;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-body section.banner {
+section.banner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -319,7 +8,7 @@ body section.banner {
   overflow: hidden;
 }
 
-body section.banner div.left {
+section.banner div.left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -340,22 +29,22 @@ body section.banner div.left {
   line-height: 4rem;
 }
 
-body section.banner div.left h2 {
+section.banner div.left h2 {
   font-size: 1.75rem;
 }
 
-body section.banner div.left h4 {
+section.banner div.left h4 {
   font-size: 1rem;
 }
 
-body section.banner div.left form.search_spot {
+section.banner div.left form.search_spot {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-left: 11rem;
 }
 
-body section.banner div.left form.search_spot input {
+section.banner div.left form.search_spot input {
   width: 400px;
   height: 46px;
   border: none;
@@ -365,7 +54,7 @@ body section.banner div.left form.search_spot input {
   padding: 1rem;
 }
 
-body section.banner div.left form.search_spot button.search_icon {
+section.banner div.left form.search_spot button.search_icon {
   background-color: #448899;
   width: 60px;
   height: 46px;
@@ -385,24 +74,24 @@ body section.banner div.left form.search_spot button.search_icon {
   transition: 0.3s all ease;
 }
 
-body section.banner div.left form.search_spot button.search_icon:hover {
+section.banner div.left form.search_spot button.search_icon:hover {
   opacity: 0.8;
 }
 
-body section.banner div.right {
+section.banner div.right {
   -webkit-box-flex: 3;
       -ms-flex: 3 1 600px;
           flex: 3 1 600px;
   position: relative;
 }
 
-body section.banner div.right img {
+section.banner div.right img {
   position: absolute;
   width: 650px;
   height: 320px;
 }
 
-body main {
+main {
   padding-bottom: 55px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -413,7 +102,7 @@ body main {
   padding-top: 3.5rem;
 }
 
-body main div.cards {
+main div.cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -422,7 +111,7 @@ body main div.cards {
   width: 1200px;
 }
 
-body main div.cards div.mycard {
+main div.cards div.mycard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -434,16 +123,16 @@ body main div.cards div.mycard {
   margin: 15px;
 }
 
-body main div.cards div.mycard div.imgContainer {
+main div.cards div.mycard div.imgContainer {
   border: #e8e8e8 1px solid;
   border-radius: 10px;
 }
 
-body main div.cards div.mycard div.imgContainer :hover {
+main div.cards div.mycard div.imgContainer :hover {
   opacity: 0.8;
 }
 
-body main div.cards div.mycard div.imgContainer img {
+main div.cards div.mycard div.imgContainer img {
   width: 100%;
   height: 202px;
   border-radius: 10px 10px 0 0;
@@ -455,13 +144,13 @@ body main div.cards div.mycard div.imgContainer img {
   cursor: pointer;
 }
 
-body main div.cards div.mycard div.imgContainer h3 {
+main div.cards div.mycard div.imgContainer h3 {
   font-size: 1rem;
   font-weight: bolder;
   margin: 8px 6px 7.5px 6px;
 }
 
-body main div.cards div.mycard div.imgContainer div.pContainer {
+main div.cards div.mycard div.imgContainer div.pContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -470,116 +159,80 @@ body main div.cards div.mycard div.imgContainer div.pContainer {
           justify-content: space-between;
 }
 
-body main div.cards div.mycard div.imgContainer div.pContainer p {
+main div.cards div.mycard div.imgContainer div.pContainer p {
   font-size: 1rem;
   margin: 7.5px 6px 12px 6px;
 }
 
-body footer {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: 104px;
-  width: 100%;
-  background-color: #757575;
-}
-
-body footer h4 {
-  font-size: 1rem;
-}
-
 @media screen and (max-width: 1200px) {
-  body header nav div.logo {
-    margin-left: 5rem;
-  }
-  body header nav ul {
-    margin-right: 5rem;
-  }
-  body section.banner div.left {
+  section.banner div.left {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 400px;
             flex: 1 1 400px;
   }
-  body section.banner div.left form.search_spot {
+  section.banner div.left form.search_spot {
     margin-left: 5rem;
   }
-  body section.banner div.left form.search_spot input {
+  section.banner div.left form.search_spot input {
     width: 300px;
   }
-  body section.banner div.right {
+  section.banner div.right {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 600px;
             flex: 1 1 600px;
     position: relative;
   }
-  body section.banner div.right img {
+  section.banner div.right img {
     width: 90%;
     height: auto;
     position: absolute;
     bottom: 0;
   }
-  body main div.cards {
+  main div.cards {
     width: 90%;
     margin: 0 auto;
   }
-  body main div.cards div.mycard {
+  main div.cards div.mycard {
     width: calc(50% - 30px);
   }
-  body main div.cards div.mycard div.imgContainer img {
+  main div.cards div.mycard div.imgContainer img {
     height: calc((50vw - 30px) * 0.6);
   }
 }
 
 @media screen and (max-width: 800px) {
-  body header nav div.logo {
-    margin-left: 10px;
-  }
-  body header nav ul {
-    margin-right: 10px;
-  }
-  body section.banner div.left {
+  section.banner div.left {
     z-index: 2;
     -webkit-box-flex: 2;
         -ms-flex: 2 1 150px;
             flex: 2 1 150px;
   }
-  body section.banner div.left form.search_spot {
+  section.banner div.left form.search_spot {
     margin-left: 1.5rem;
   }
-  body section.banner div.left form.search_spot input {
+  section.banner div.left form.search_spot input {
     width: 230px;
   }
-  body section.banner div.right {
+  section.banner div.right {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 300px;
             flex: 1 1 300px;
   }
-  body section.banner div.right img {
+  section.banner div.right img {
     width: 150%;
     height: auto;
     z-index: 1;
   }
-  body main div.cards div.mycard {
+  main div.cards div.mycard {
     width: 100%;
   }
-  body main div.cards div.mycard div.imgContainer img {
+  main div.cards div.mycard div.imgContainer img {
     height: calc((100vw - 30px) * 0.6);
   }
 }
 
 @media screen and (max-width: 450px) {
-  body section.banner div.right img {
+  section.banner div.right img {
     width: 276px;
     height: 148px;
     right: -20vw;
