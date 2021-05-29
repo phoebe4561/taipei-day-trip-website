@@ -1,7 +1,8 @@
-from flask import Flask,render_template,request,jsonify,session
+from flask import Flask,render_template,request,jsonify,session,redirect
 from data import data
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy 
+import requests,json
 import os
 
 app=Flask(__name__)
@@ -67,12 +68,15 @@ class booking_tb(db.Model):
 	date = db.Column(db.String(50), nullable = False, comment = '預約日期')
 	time = db.Column(db.String(50), nullable = False, comment = '預約時間') 
 	price = db.Column(db.String(50), nullable = False, comment = '景點價格')
+	userId= db.Column(db.Integer, db.ForeignKey('user_tb.id'), comment='使用者訂購編號') 
+
 	
-	def __init__ (self,attractionId,date,time,price):
+	def __init__ (self,attractionId,date,time,price,userId):
 		self.attractionId = attractionId
 		self.date = date
 		self.time = time
 		self.price = price
+		self.userId = userId
 
 # Pages
 @app.route("/load")
@@ -88,6 +92,8 @@ def attraction(id):
 	return render_template("attraction.html")
 @app.route("/booking")
 def booking():
+	if 'email' not in session:
+		return redirect("/")
 	return render_template("booking.html")
 @app.route("/thankyou")
 def thankyou():
@@ -122,7 +128,6 @@ def get_one_attraction(id):
 
 @app.route("/api/attractions", methods = ["GET"]) 
 def get_attraction_list():
-
 	try:
 		page = request.args.get("page", 0, type = int)
 		k = request.args.get("keyword")		
@@ -163,19 +168,16 @@ def get_attraction_list():
 
 @app.route("/api/user", methods = ["GET"])
 def get_user_data():
-	email=session.get('email')
 
-	if email:
-		user=user_tb.query.filter_by(email=email).first()
-		
-		user_data = {}
-		user_data['id'] = user.id
-		user_data['name'] = user.name
-		user_data['email'] = user.email
-		db.session.commit()
-		return jsonify({'data':user_data})
+	if "email" in session:
+			return jsonify({"data":{
+				"id":session["id"],
+				"name":session["name"],
+				"email":session["email"]
+				}
+			})
 	else:
-		return jsonify({'data':None})
+		return jsonify({"data":None}) 
 
 @app.route("/api/user", methods = ["POST"])
 def create_new_user():
@@ -207,22 +209,24 @@ def signin_user():
 
 	try:
 		if email and password:
-			user=user_tb.query.filter_by(email=email,password=password).first()
-			if not user:
-				return jsonify({"error":True, "message":"帳號或密碼錯誤,註冊失敗"}),400
-			else:
-				signin_email=data['email']
-				signin_password=data['password']
-				session['email']=signin_email
+			sql = f"select * from user_tb where email='{email}' and password='{password}'"
+			result = db.engine.execute(sql)
+			for row in result:
+				# print(i)
+				session["id"]=row[0]
+				session["email"]=row[1]
+				session["name"]=row[2]
 				return jsonify({"ok":True})
 		else:
-			return jsonify({"error":True})
+			return jsonify({"error":True})					
 	except:
 			return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
 		
 @app.route("/api/user", methods = ["DELETE"])
 def signout_user():
 	if 'email' in session:
+		session.pop("id")
+		session.pop("name")
 		session.pop("email")
 		return jsonify({"ok":True})
 
@@ -231,17 +235,18 @@ def signout_user():
 def get_booking_data():
 	if 'email' not in session:
 		return jsonify({"error":True, "message":"未登入系統"}),403
+	
 	if request.method == "POST":
 		try:
 			data=request.get_json()
-			print(data)	
 			attractionId=data.get("attractionId")
 			date = data.get("date")
 			time = data.get("time")
 			price = data.get("price")
+			userId=session['id']
+
 			if date and time and price:
-				new_booking=booking_tb(attractionId=attractionId,date=date,time=time,price=price)
-				print(new_booking)
+				new_booking=booking_tb(attractionId=attractionId,date=date,time=time,price=price,userId=userId)
 				db.session.add(new_booking)
 				db.session.commit()
 				return jsonify({"ok":True})
@@ -251,33 +256,164 @@ def get_booking_data():
 			return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
 	
 	if request.method == "GET":
+		userId=session["id"]
 		
-		booking="SELECT booking_tb.*,attraction_tb.name,attraction_tb.address,attraction_tb.images FROM booking_tb INNER JOIN attraction_tb ON booking_tb.attractionId = attraction_tb.id"		
-		
+		booking=f'''
+		SELECT booking_tb.date,booking_tb.time,booking_tb.price,
+		attraction_tb.id as attId,attraction_tb.name,attraction_tb.address,attraction_tb.images,booking_tb.id 
+		FROM booking_tb
+		INNER JOIN attraction_tb ON booking_tb.attractionId = attraction_tb.id 
+		WHERE booking_tb.userId='{userId}' ORDER BY booking_tb.id DESC 
+		'''	
 		booking_data = db.engine.execute(booking)
-		res = {"data":None}
-		for row in booking_data:	
-			res = {
-				"data":{
+		for row in booking_data:
+			data = {
 					"attraction":{
-						"id":row[1],
-						"name":row[5],
-						"address":row[6],
-						"image":row[7].split(";")[0]
+						"id":row[3],
+						"name":row[4],
+						"address":row[5],
+						"image":row[6].split(";")[0]
 						},
-				"date":row[2],
-				"time":row[3],
-				"price":row[4]
+				"date":row[0],
+				"time":row[1],
+				"price":row[2]
 				}
-			}
-		return jsonify(res)
-
+			return jsonify({"data":data})
+		return jsonify({"data":None})
 	
 	if request.method=="DELETE":
-		db.session.query(booking_tb).delete()
+		db.session.query(booking_tb).filter_by(userId=session['id']).delete()
 		db.session.commit()
 		return jsonify({"ok":True})
 	return jsonify({"error":True})
+
+
+@app.route("/api/orders",methods=["POST"])
+def post_order():
+	try:
+		if 'email' not in session:
+			return jsonify({"error":True, "message":"未登入系統"}),403
+		if request.get_json()["order"]["contact"]["phone"]=="":
+			return jsonify({"error":True, "message":"請填入您的聯絡資訊"}),400
+
+		primeAPI_url = "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
+		tappayRequest = {
+			"partner_key":"partner_aBZwbMw78X7wUNpCYfa9veTp57IU2my09X32HvHOhR8BJCvHLpg4Fohg",
+			"prime": request.get_json()["prime"],
+			"amount": request.get_json()["order"]["price"],
+			"merchant_id": "phoebepao_TAISHIN",
+			"details":f'''
+			{request.get_json()["order"]["trip"]["attraction"]["id"]};
+			{request.get_json()["order"]["trip"]["attraction"]["name"]};
+			{request.get_json()["order"]["trip"]["date"]};
+			{request.get_json()["order"]["trip"]["time"]}
+			''',
+			"cardholder": {
+				"phone_number": request.get_json()["order"]["contact"]["phone"],
+				"name": request.get_json()["order"]["contact"]["name"],
+				"email": request.get_json()["order"]["contact"]["email"]
+				}
+		}
+		headers = {
+			'content-type': 'application/json',
+			'x-api-key': 'partner_aBZwbMw78X7wUNpCYfa9veTp57IU2my09X32HvHOhR8BJCvHLpg4Fohg'
+		}
+		r = requests.post(primeAPI_url,data=json.dumps(tappayRequest),headers=headers,timeout = 30)
+		data = json.loads(r.text)
+
+		
+		if data["status"]==0:
+			return jsonify({
+				"data":{
+					"number":data["bank_transaction_id"],
+					"payment":{
+						"status":"0",
+						"message":"付款成功",
+					}
+				}
+			})
+		else:
+			return jsonify({
+				"data":{
+					"number":data["bank_transaction_id"],
+					"payment":{
+						"status":"交易失敗",
+						"message":"付款失敗",
+					}
+				}
+			})
+	except:
+		return jsonify({"error":True, "message":"伺服器內部錯誤"}),500
+
+@app.route("/api/order/<orderNumber>",methods=["GET"])
+def get_order(orderNumber):
+	if 'email' not in session:
+			return jsonify({"error":True, "message":"未登入系統"}),403
+	if orderNumber:
+		recordAPI_url="https://sandbox.tappaysdk.com/tpc/transaction/query"
+		tappayRecord={
+			"partner_key":"partner_aBZwbMw78X7wUNpCYfa9veTp57IU2my09X32HvHOhR8BJCvHLpg4Fohg",
+			"filters":{
+			"bank_transaction_id":orderNumber
+			}
+		}
+		headers = {
+			'content-type': 'application/json',
+			'x-api-key': 'partner_aBZwbMw78X7wUNpCYfa9veTp57IU2my09X32HvHOhR8BJCvHLpg4Fohg'
+		}
+		r = requests.post(recordAPI_url,data=json.dumps(tappayRecord),headers=headers)
+		data = json.loads(r.text)
+		# print(data)
+		if not data["trade_records"]: 
+			return jsonify({"data":None})
+		trip = data["trade_records"][0]["details"].split(";")
+		info=db.session.query(attraction_tb.id,attraction_tb.name,attraction_tb.address,attraction_tb.images).filter_by(id={trip[0]}).first()
+		db.session.commit()
+		# print(info)
+		attr = {
+			"id":info[0],
+			"name":info[1],
+			"address":info[2],
+			"image":info[3].split(";")[0]
+		}
+
+		if data["trade_records"][0]["record_status"]==0:
+			return jsonify({
+				"data":{
+					"number":data["trade_records"][0]["bank_transaction_id"],
+					"trip":{
+						"attraction":attr,
+						"date":trip[2],
+						"time":trip[3]
+					},
+					"price":data["trade_records"][0]["original_amount"],
+					"contact":{
+						"name":data["trade_records"][0]["cardholder"]["name"],
+						"email":data["trade_records"][0]["cardholder"]["email"],
+						"phone":data["trade_records"][0]["cardholder"]["phone_number"],
+					},
+					"status":0
+				}
+			})
+		else:
+			return jsonify({
+			"data":{
+				"number":data["trade_records"][0]["bank_transaction_id"],
+					"trip":{
+						"attraction":attr,
+						"date":trip[2],
+						"time":trip[3]
+					},
+				"price":data["trade_records"][0]["original_amount"],
+				"contact":{
+					"name":data["trade_records"][0]["cardholder"]["name"],
+					"email":data["trade_records"][0]["cardholder"]["email"],
+					"phone":data["trade_records"][0]["cardholder"]["phone_number"],
+				},
+				"status":1
+			}
+		})
+		
 
 if __name__=='__main__':
 	db.create_all()

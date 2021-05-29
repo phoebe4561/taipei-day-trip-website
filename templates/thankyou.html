@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}訂購資訊:台北一日遊{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename = 'css/thankyou.css')}}">
+{% endblock %}
+
+
+{% block main %}
+    <div class="order_info">
+        <!-- <h4>您好,<span id="order_name">amy</span>,您的訂單如下:</h4> -->
+        <h4>您好 , {{session.name}} , 您的訂單如下:</h4>
+        <p class="wrong_order"></p>
+        <div class="correct_order">
+            <p>訂單編號:<span id="order_id"></span></p>
+            <p>付款狀態:<span id="status"></span></p>
+            <div class="order_content">
+                <div>訂單資訊:</div>
+                <li>訂購景點:<span id="order_spot"></span></li>
+                <div class="imgContainer">
+                    <img id="order_photo" alt="景點照">
+                </div>
+                <li>行程時間:<span id="order_time"></span></li>
+                <li>刷卡金額:<span id="order_price"></span></li>
+            </div>
+            <p class="remind">請妥善保管訂單資訊,若有任何問題歡迎致電詢問!</p>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+    <script src="{{url_for('static', filename = 'js/thankyou.js')}}"></script>
+{% endblock %}

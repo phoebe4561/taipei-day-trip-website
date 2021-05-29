@@ -1,0 +1,67 @@
+.order_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.order_info span {
+  padding-left: 5px;
+}
+
+.order_info h4 {
+  font-weight: bolder;
+  margin: 2rem 0;
+}
+
+.order_info p {
+  line-height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.order_info .order_content {
+  margin: 3rem 0 1rem 0;
+  line-height: 2.3rem;
+}
+
+.order_info .order_content .imgContainer {
+  max-width: 450px;
+  max-height: 338px;
+}
+
+.order_info .order_content .imgContainer img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.order_info p.remind {
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .order_info {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+/*# sourceMappingURL=thankyou.css.map */

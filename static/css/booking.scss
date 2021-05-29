@@ -1,450 +1,181 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-}
-
-body {
+main {
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  header {
-    position: sticky;
-    z-index: 5;
-    top: 0;
+  .imgcontainer {
+    overflow: hidden;
+    max-width: 1200px;
     width: 100%;
-    background-color: white;
-    box-shadow: 2px 2px 5px 1px rgb(128, 128, 128);
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      div.logo {
-        margin: 0.5rem 0;
-        cursor: pointer;
-        a {
-          color: #448899;
-          text-decoration: none;
-          font-size: 2rem;
-          &:hover {
-            opacity: 0.8;
-          }
-          transition: 0.3s all ease;
-        }
-      }
-      ul {
-        display: flex;
-        align-items: center;
-        margin: 0.5rem 0;
-        li {
-          list-style-type: none;
-          cursor: pointer;
-          a {
-            text-decoration: none;
-            color: #666666;
-            padding: 0.5rem;
-            font-size: 1rem;
-            &:hover {
-              opacity: 0.8;
-            }
-            transition: 0.3s all ease;
-          }
-        }
-      }
+    h4 {
+      font-size: 1.25rem;
+      margin: 30px 100px;
+      font-weight: bolder;
     }
-  }
-
-  section.popup {
-    background: rgba(0, 0, 0, 0.25);
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    display: none;
-    justify-content: center;
-    z-index: 10;
-    div.popup_container {
-      width: 340px;
-      height: 285px;
-      background-color: rgba(255, 255, 255, 1);
-      position: relative;
-      top: 80px;
-      border-radius: 6px;
-      div.blank {
-        width: 340px;
-        height: 10px;
-        background: linear-gradient(
-          0deg,
-          rgba(51, 119, 136, 1),
-          rgba(102, 170, 187, 1)
-        );
-        border-radius: 6px 6px 0 0;
-      }
-      div.close_button {
-        position: absolute;
-        top: 0.8rem;
-        left: 300px;
-        font-size: 2rem;
-        cursor: pointer;
-        &:hover {
-          font-size: 2.5rem;
-        }
-      }
-      form {
-        h3 {
-          color: rgba(102, 102, 102, 1);
-          font-size: 1.5rem;
-          text-align: center;
-          margin-top: 15px;
-        }
-        input {
-          width: 310px;
-          height: 47px;
-          border: 1px solid #cccccc;
-          border-radius: 5px;
-          color: rgba(102, 102, 102, 1);
-          font-size: 1rem;
-          padding: 0 15px;
-          display: block;
-          margin: 10px auto;
-        }
-        button {
-          width: 310px;
-          height: 47px;
-          background-color: #448899;
-          border: none;
-          border-radius: 5px;
-          color: white;
-          font-size: 1.25rem;
-          cursor: pointer;
-          display: block;
-          margin: 10px auto;
-          &:hover {
-            opacity: 0.8;
-          }
-          transition: 0.3s all ease-in;
-        }
-        #signin_errorAlert {
-          text-align: center;
-          color: red;
-        }
-        div.a_tag {
-          text-align: center;
-          a {
-            color: rgba(102, 102, 102, 1);
-            text-decoration: none;
-            cursor: pointer;
-            margin: 0 auto;
-            span.border {
-              font-weight: bolder;
-              &:hover {
-                color: red;
-              }
-            }
-          }
-        }
-      }
+    #no_order {
+      margin: 15px 100px 45px 100px;
+      font-size: 1.25rem;
     }
-  }
-  section.signup_popup {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    display: none;
-    justify-content: center;
-    z-index: 11;
-    div.signup_popup_container {
-      width: 340px;
-      height: 345px;
-      background-color: rgba(255, 255, 255, 1);
-      position: relative;
-      top: 80px;
-      border-radius: 6px;
-      div.signup_blank {
-        width: 340px;
-        height: 10px;
-        background: linear-gradient(
-          0deg,
-          rgba(51, 119, 136, 1),
-          rgba(102, 170, 187, 1)
-        );
-        border-radius: 6px 6px 0 0;
-      }
-      div.signup_close_button {
-        position: absolute;
-        top: 0.8rem;
-        left: 300px;
-        font-size: 2rem;
-        cursor: pointer;
-        &:hover {
-          font-size: 2.5rem;
-        }
-      }
-      form {
-        h3 {
-          color: rgba(102, 102, 102, 1);
-          font-size: 1.5rem;
-          text-align: center;
-          margin-top: 15px;
-        }
-        input {
-          width: 310px;
-          height: 47px;
-          border: 1px solid #cccccc;
-          border-radius: 5px;
-          color: rgba(102, 102, 102, 1);
-          font-size: 1rem;
-          padding: 0 15px;
-          display: block;
-          margin: 10px auto;
-        }
-        button {
-          width: 310px;
-          height: 47px;
-          background-color: #448899;
-          border: none;
-          border-radius: 5px;
-          color: white;
-          font-size: 1.25rem;
-          cursor: pointer;
-          display: block;
-          margin: 10px auto;
-          &:hover {
-            opacity: 0.8;
-          }
-          transition: 0.3s all ease-in;
-        }
-        #signup_successAlert {
-          text-align: center;
-          color: green;
-        }
-        #signup_errorAlert {
-          text-align: center;
-          color: red;
-        }
-        div.a_tag {
-          text-align: center;
-          a {
-            color: rgba(102, 102, 102, 1);
-            text-decoration: none;
-            cursor: pointer;
-            margin: 0 auto;
-            span.border {
-              font-weight: bolder;
-              &:hover {
-                color: red;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  main {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    .imgcontainer {
-      overflow: hidden;
-      max-width: 1200px;
-      width: 100%;
-      h4 {
-        font-size: 1.25rem;
-        margin: 30px 100px;
+    .schedule {
+      margin: 0 100px;
+      .bolder {
         font-weight: bolder;
       }
-      #no_order {
-        margin: 15px 100px 45px 100px;
+      span.normal {
+        font-weight: normal;
+        padding-left: 5px;
+      }
+      .schedule_content {
+        display: flex;
+        position: relative;
+        .left_imgcontainer {
+          max-width: 266px;
+          height: 200px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .right {
+          margin-left: 22px;
+          h4 {
+            color: rgba(68, 136, 153, 1);
+            margin: 0 0 30px 0;
+          }
+          p {
+            line-height: 30px;
+          }
+        }
+        .trushBtn {
+          position: absolute;
+          right: 0;
+          cursor: pointer;
+        }
+      }
+    }
+    hr {
+      width: 1200px;
+      margin: 45px auto;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      h4 {
         font-size: 1.25rem;
+        font-weight: bolder;
+        margin: 0 0 24px 0;
+      }
+      .pay_form {
+        width: 100%;
+        .pay_form_up,
+        .pay_form_down {
+          margin: 0 100px;
+        }
+        .order_credit_card {
+          display: flex;
+          align-items: center;
+        }
+        input,
+        .tpfield {
+          width: 200px;
+          height: 38px;
+          margin: 15px 0;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid rgba(232, 232, 232, 1);
+          font-size: 1rem;
+        }
+      }
+      .pay_button {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        h4 {
+          margin-right: 100px;
+        }
+        .payBtn {
+          background-color: rgba(68, 136, 153, 1);
+          color: white;
+          font-size: 1.25rem;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-bottom: 20px;
+          margin-right: 100px;
+        }
+        .pay_error_msg {
+          margin: 0 100px 20px 0;
+          color: red;
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  main {
+    .imgcontainer {
+      #no_order {
+        margin: 0 20px 35px 20px;
+      }
+      h4 {
+        margin: 35px 20px;
       }
       .schedule {
-        margin: 0 100px;
-        .bolder {
-          font-weight: bolder;
-        }
-        span.normal {
-          font-weight: normal;
-          padding-left: 5px;
-        }
+        margin: 0 20px;
         .schedule_content {
-          display: flex;
-          position: relative;
+          flex-direction: column;
+          .trushBtn {
+            top: 650px;
+          }
           .left_imgcontainer {
-            max-width: 266px;
-            height: 200px;
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
+            width: 100%;
+            max-width: 1000px;
+            min-height: 450px;
+            // height: auto;
           }
           .right {
-            margin-left: 22px;
+            margin-left: 0px;
             h4 {
-              color: rgba(68, 136, 153, 1);
-              margin: 0 0 30px 0;
+              margin: 30px 0;
             }
-            p {
-              line-height: 30px;
-            }
-          }
-          .trushBtn {
-            position: absolute;
-            right: 0;
-            cursor: pointer;
           }
         }
-      }
-      hr {
-        width: 1200px;
-        margin: 45px auto;
       }
       form {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        h4 {
-          font-size: 1.25rem;
-          font-weight: bolder;
-          margin: 0 0 24px 0;
-        }
         .pay_form {
-          width: 100%;
           .pay_form_up,
           .pay_form_down {
-            margin: 0 100px;
-          }
-          input {
-            width: 200px;
-            height: 38px;
-            margin: 15px 0;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid rgba(232, 232, 232, 1);
-            font-size: 1rem;
+            margin: 0 20px;
           }
         }
         .pay_button {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          h4 {
-            margin-right: 100px;
-          }
+          h4,
           .payBtn {
-            background-color: rgba(68, 136, 153, 1);
-            color: white;
-            font-size: 1.25rem;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 72px;
-            margin-right: 100px;
+            margin-right: 20px;
           }
         }
       }
     }
   }
-
-  footer {
-    display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    min-height: 104px;
-    width: 100%;
-    background-color: #757575;
-    h4 {
-      font-size: 1rem;
-    }
-  }
-  @media screen and (max-width: 1000px) {
-    header {
-      nav {
-        div.logo {
-          margin-left: 10px;
-        }
-        .menu {
-          margin-right: 10px;
-        }
-      }
-    }
-    main {
-      .imgcontainer {
-        #no_order {
-          margin: 0 20px 35px 20px;
-        }
-        h4 {
-          margin: 35px 20px;
-        }
-        .schedule {
-          margin: 0 20px;
-          .schedule_content {
-            flex-direction: column;
-            .trushBtn {
-              top: 650px;
-            }
-            .left_imgcontainer {
-              width: 100%;
-              max-width: 1000px;
-              min-height: 450px;
-              // height: auto;
-            }
-            .right {
-              margin-left: 0px;
-              h4 {
-                margin: 30px 0;
-              }
-            }
+}
+@media screen and (max-width: 600px) {
+  main {
+    .imgcontainer {
+      .schedule {
+        .schedule_content {
+          .trushBtn {
+            top: 460px;
+            font-size: small;
           }
-        }
-        form {
-          .pay_form {
-            .pay_form_up,
-            .pay_form_down {
-              margin: 0 20px;
-            }
-          }
-          .pay_button {
-            h4,
-            .payBtn {
-              margin-right: 20px;
-            }
-          }
-        }
-      }
-    }
-  }
-  @media screen and (max-width: 600px) {
-    main {
-      .imgcontainer {
-        .schedule {
-          .schedule_content {
-            .trushBtn {
-              top: 460px;
-              font-size: small;
-            }
-            .left_imgcontainer {
-              width: 100%;
-              min-height: 250px;
-            }
+          .left_imgcontainer {
+            width: 100%;
+            min-height: 250px;
           }
         }
       }
